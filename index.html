@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>临河/水库/泄洪区洪水倒灌实战手册</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto { content-visibility: auto; }
+            .card-gradient { position: absolute; inset: 0; opacity: 0.06; }
+            .step-border { border-left: 4px solid #0ea5e9; }
+            .text-pc { @apply text-base md:text-lg lg:text-xl; }
+            .text-mobile { @apply text-sm md:text-base; }
+        }
+    </style>
+    <style>
+        /* 打印优化 + 大屏阅读优化 */
+        @media (min-width: 1280px) {
+            .main-wrap { max-width: 1400px; }
+        }
+        /* 响应表格 手机横向滚动 */
+        .table-box { overflow-x: auto; }
+        table th, table td { white-space: nowrap; }
+        /* 悬浮目录 电脑固定侧边 */
+        .sidebar-toc { display: none; }
+        @media (min-width: 1024px) {
+            .sidebar-toc { display: block; position: sticky; top: 80px; height: calc(100vh - 100px); overflow-y: auto; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-700">
+    <!-- 顶部全局导航 双端通用 -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-200">
+        <div class="main-wrap mx-auto px-4 py-4 lg:px-8 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-water text-blue-600 text-2xl"></i>
+                <h1 class="text-xl md:text-2xl font-bold text-gray-800">洪水倒灌实战手册</h1>
+            </div>
+            <span class="text-sm text-gray-500 hidden md:block">临水园区防汛全流程实战指南</span>
+        </div>
+    </header>
+
+    <div class="main-wrap mx-auto px-4 py-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- 电脑侧边目录 大屏专用 -->
+        <aside class="sidebar-toc lg:col-span-3 xl:col-span-2">
+            <div class="card p-4 sticky top-24">
+                <h3 class="font-bold text-blue-600 mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-list"></i>目录导航
+                </h3>
+                <nav class="space-y-2 text-sm">
+                    <a href="#p1" class="block py-1 hover:text-blue-600">一、编制目的</a>
+                    <a href="#p2" class="block py-1 hover:text-blue-600">二、核心处置原则</a>
+                    <a href="#p3" class="block py-1 hover:text-blue-600">三、适用范围</a>
+                    <a href="#p4" class="block py-1 hover:text-blue-600">四、专业术语释义</a>
+                    <a href="#p5" class="block py-1 hover:text-blue-600">五、全域处置流程</a>
+                    <a href="#p6" class="block py-1 hover:text-blue-600">六、三大险情场景</a>
+                    <a href="#p7" class="block py-1 hover:text-blue-600">七、班组岗位职责</a>
+                    <a href="#p8" class="block py-1 hover:text-blue-600">八、防汛物资清单</a>
+                    <a href="#p9" class="block py-1 hover:text-blue-600">九、外部联络表</a>
+                    <a href="#p10" class="block py-1 hover:text-blue-600">十、汛期硬性要求</a>
+                    <a href="#p11" class="block py-1 hover:text-blue-600">十一、实景演练经验</a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- 主内容区域 -->
+        <main class="lg:col-span-9 xl:col-span-10 space-y-6">
+            <!-- 封面主卡片 通栏 -->
+            <section class="card relative overflow-hidden p-6 md:p-10 text-center" id="cover">
+                <div class="card-gradient bg-gradient-to-br from-blue-400/30 to-blue-100/30"></div>
+                <div class="relative">
+                    <div class="flex justify-center items-center gap-4 mb-4">
+                        <i class="fa-solid fa-water text-blue-500 text-4xl"></i>
+                        <i class="fa-solid fa-house-flood-water text-blue-500 text-4xl"></i>
+                    </div>
+                    <h2 class="text-2xl md:text-4xl font-bold text-gray-800 mb-2">临河/水库/泄洪区洪水倒灌</h2>
+                    <h3 class="text-xl md:text-3xl font-bold text-blue-600 mb-4">实战处置手册</h3>
+                    <p class="text-pc text-gray-600">岗位明确 · 步骤细化 · 实操落地 · 双端适配</p>
+                </div>
+            </section>
+
+            <!-- 一、编制目的 -->
+            <section class="card relative overflow-hidden p-5 md:p-6" id="p1">
+                <div class="card-gradient bg-gradient-to-br from-teal-400/30 to-teal-100/30"></div>
+                <div class="relative">
+                    <h3 class="text-lg md:text-xl font-bold text-teal-600 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-file-signature"></i>一、编制目的
+                    </h3>
+                    <p class="text-pc indent-8 leading-relaxed">
+                        为高效、规范、有序处置园区洪水倒灌突发险情，标准化全流程应急作业，最大限度保障项目人员生命安全，减少业主财产损失、园区公共设施损毁损失，筑牢汛期防汛安全防线，特编制本实战手册。
+                    </p>
+                </div>
+            </section>
+
+            <!-- 二、核心处置原则 PC双列 手机单列 -->
+            <section class="card relative overflow-hidden p-5 md:p-6" id="p2">
+                <div class="card-gradient bg-gradient-to-br from-amber-400/30 to-amber-100/30"></div>
+                <div class="relative">
+                    <h3 class="text-lg md:text-xl font-bold text-amber-600 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-shield-heart"></i>二、核心处置原则
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="flex gap-2 items-start">
+                            <i class="fa-solid fa-star text-amber-500 mt-1"></i>
+                            <div><strong>生命至上</strong>：生命安全第一，不牺牲人员保全物资</div>
+                        </div>
+                        <div class="flex gap-2 items-start">
+                            <i class="fa-solid fa-star text-amber-500 mt-1"></i>
+                            <div><strong>预防为先</strong>：常态化巡查监测，前置备料布防</div>
+                        </div>
+                        <div class="flex gap-2 items-start">
+                            <i class="fa-solid fa-star text-amber-500 mt-1"></i>
+                            <div><strong>快速响应</strong>预警下达后全员立刻上岗处置</div>
+                        </div>
+                        <div class="flex gap-2 items-start">
+                            <i class="fa-solid fa-star text-amber-500 mt-1"></i>
+                            <div><strong>联动处置</strong>内部班组+属地三防消防协同作战</div>
+                        </div>
+                        <div class="flex gap-2 items-start md:col-span-2">
+                            <i class="fa-solid fa-star text-amber-500 mt-1"></i>
+                            <div><strong>属地负责</strong>项目总指挥统一调度，全员服从指令</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 三、适用范围 -->
+            <section class="card relative overflow-hidden p-5 md:p-6" id="p3">
+                <div class="card-gradient bg-gradient-to-br from-indigo-400/30 to-indigo-100/30"></div>
+                <div class="relative">
+                    <h3 class="text-lg md:text-xl font-bold text-indigo-600 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-map-marked-alt"></i>三、适用范围
+                    </h3>
+                    <p class="text-pc mb-3">本手册适用于物业服务管辖以下风险区域：</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <div class="flex gap-2 items-start">
+                            <i class="fa-solid fa-check-circle text-indigo-500 mt-1"></i>
+                            <span>红线距河道/水库300m以内区域</span>
+                        </div>
+                        <div class="flex gap-2 items-start">
+                            <i class="fa-solid fa-check-circle text-indigo-500 mt-1"></i>
+                            <span>官方划定固定低洼易涝点位</span>
+                        </div>
+                        <div class="flex gap-2 items-start">
+                            <i class="fa-solid fa-check-circle text-indigo-500 mt-1"></i>
+                            <span>历年发生倒灌、内涝历史片区</span>
+                        </div>
+                        <div class="flex gap-2 items-start">
+                            <i class="fa-solid fa-check-circle text-indigo-500 mt-1"></i>
+                            <span>泄洪渠满负荷易漫溢区域</span>
+                        </div>
+                        <div class="flex gap-2 items-start">
+                            <i class="fa-solid fa-check-circle text-indigo-500 mt-1"></i>
+                            <span>地库无防渗隔离墙体区域</span>
+                        </div>
+                        <div class="flex gap-2 items-start">
+                            <i class="fa-solid fa-check-circle text-indigo-500 mt-1"></i>
+                            <span>临水挡墙高度不达标点位</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 四、专业术语 PC四格 手机1格 -->
+            <section class="card relative overflow-hidden p-5 md:p-6" id="p4">
+                <div class="card-gradient bg-gradient-to-br from-purple-400/30 to-purple-100/30"></div>
+                <div class="relative">
+                    <h3 class="text-lg md:text-xl font-bold text-purple-600 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-book-atlas"></i>四、专业术语释义
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-purple-700 mb-2">4.1 警戒水位</h4>
+                            <p class="text-mobile">河道水位达防洪标准，需启动前置设防临界水位</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-purple-700 mb-2">4.2 保证水位</h4>
+                            <p class="text-mobile">超防洪标准，堤岸易溃，必须全员紧急避险</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-purple-700 mb-2">4.3 洪水倒灌</h4>
+                            <p class="text-mobile">外部水位高于园区，经管网/通道反向进水</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-purple-700 mb-2">4.4 临时子埂</h4>
+                            <p class="text-mobile">沙袋土工布临时加高挡水堤，短时阻隔漫溢</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 五、全域处置流程 带表格+流程图 -->
+            <section class="card relative overflow-hidden p-5 md:p-6" id="p5">
+                <div class="card-gradient bg-gradient-to-br from-red-400/30 to-red-100/30"></div>
+                <div class="relative">
+                    <h3 class="text-lg md:text-xl font-bold text-red-600 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-sitemap"></i>五、全域主应急处置流程
+                    </h3>
+                    <!-- 响应式表格 -->
+                    <div class="table-box mb-6">
+                        <table class="w-full border-collapse border border-gray-200 text-mobile">
+                            <thead class="bg-red-100 text-red-800">
+                                <tr>
+                                    <th class="border border-gray-200 px-3 py-2">流程序号</th>
+                                    <th class="border border-gray-200 px-3 py-2 text-left">全域处置核心内容</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="border px-3 py-2 text-center">1</td><td class="border px-3 py-2">汛期常态化值守、全天候巡查水情</td></tr>
+                                <tr><td class="border px-3 py-2 text-center">2</td><td class="border px-3 py-2">隐患分级整改，接收官方雨情水情预警</td></tr>
+                                <tr><td class="border px-3 py-2 text-center">3</td><td class="border px-3 py-2">蓝黄预警前置设防，橙红预警全员集结</td></tr>
+                                <tr><td class="border px-3 py-2 text-center">4</td><td class="border px-3 py-2">不间断监测水位，核验是否倒灌</td></tr>
+                                <tr><td class="border px-3 py-2 text-center">5</td><td class="border px-3 py-2">确认险情，启动对应专项处置流程</td></tr>
+                                <tr><td class="border px-3 py-2 text-center">6</td><td class="border px-3 py-2">抢险/排水/警戒疏散班组同步作业</td></tr>
+                                <tr><td class="border px-3 py-2 text-center">7</td><td class="border px-3 py-2">险情可控则持续值守至预警解除</td></tr>
+                                <tr><td class="border px-3 py-2 text-center">8</td><td class="border px-3 py-2">险情失控，联动属地消防三防救援</td></tr>
+                                <tr><td class="border px-3 py-2 text-center">9</td><td class="border px-3 py-2">汛后消杀、抢修、统计、复盘优化</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- 流程图 PC横向排版 手机纵向 -->
+                    <div class="bg-gray-50 rounded-lg p-4 overflow-x-auto">
+                        <h4 class="font-bold mb-3 text-gray-800">全域应急闭环流程图</h4>
+                        <div class="flex flex-col md:flex-row md:items-center gap-2 min-w-max">
+                            <div class="bg-white border rounded px-3 py-2 whitespace-nowrap text-sm"><i class="fa-solid fa-clock text-blue-500 mr-1"></i>1.汛期值守巡查</div>
+                            <i class="fa-solid fa-arrow-right text-gray-400 hidden md:block"></i>
+                            <i class="fa-solid fa-arrow-down text-gray-400 md:hidden self-center"></i>
+                            <div class="bg-white border rounded px-3 py-2 whitespace-nowrap text-sm"><i class="fa-solid fa-magnifying-glass text-blue-500 mr-1"></i>2.隐患自查整改</div>
+                            <i class="fa-solid fa-arrow-right text-gray-400 hidden md:block"></i>
+                            <i class="fa-solid fa-arrow-down text-gray-400 md:hidden self-center"></i>
+                            <div class="bg-white border rounded px-3 py-2 whitespace-nowrap text-sm"><i class="fa-solid fa-shield-halved text-blue-500 mr-1"></i>3.分级备战设防</div>
+                            <i class="fa-solid fa-arrow-right text-gray-400 hidden md:block"></i>
+                            <i class="fa-solid fa-arrow-down text-gray-400 md:hidden self-center"></i>
+                            <div class="bg-white border rounded px-3 py-2 whitespace-nowrap text-sm"><i class="fa-solid fa-water text-amber-500 mr-1"></i>水位核验判定</div>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-6 mt-4">
+                            <div class="flex flex-col items-center">
+                                <div class="bg-green-50 border border-green-200 rounded px-3 py-2 whitespace-nowrap text-sm">无倒灌风险</div>
+                                <i class="fa-solid fa-arrow-up text-gray-400 rotate-90 my-1"></i>
+                                <span class="text-xs text-gray-500">返回值守</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <div class="bg-amber-50 border border-amber-200 rounded px-3 py-2 whitespace-nowrap text-sm">确认洪水倒灌</div>
+                                <i class="fa-solid fa-arrow-down text-gray-400 my-1"></i>
+                                <div class="bg-amber-50 border rounded px-3 py-2 whitespace-nowrap text-sm">4.启动专项处置</div>
+                                <i class="fa-solid fa-arrow-down text-gray-400 my-1"></i>
+                                <div class="bg-red-50 border rounded px-3 py-2 whitespace-nowrap text-sm">5.班组协同抢险</div>
+                                <i class="fa-solid fa-arrow-down text-gray-400 my-1"></i>
+                                <div class="flex gap-4">
+                                    <div class="flex flex-col items-center">
+                                        <span class="text-xs">可控</span>
+                                        <div class="bg-teal-50 border rounded px-3 py-2 text-sm">持续值守</div>
+                                    </div>
+                                    <div class="flex flex-col items-center">
+                                        <span class="text-xs">失控</span>
+                                        <div class="bg-red-100 border rounded px-3 py-2 text-sm">联动救援撤离</div>
+                                    </div>
+                                </div>
+                                <i class="fa-solid fa-arrow-down text-gray-400 my-1"></i>
+                                <div class="bg-indigo-50 border rounded px-3 py-2 whitespace-nowrap text-sm">汛后闭环复盘</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 六、三大险情场景 -->
+            <section class="card relative overflow-hidden p-5 md:p-6" id="p6">
+                <div class="card-gradient bg-gradient-to-br from-amber-400/30 to-amber-100/30"></div>
+                <div class="relative">
+                    <h3 class="text-lg md:text-xl font-bold text-amber-600 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-exclamation-triangle"></i>六、三大专项险情场景处置
+                    </h3>
+                    <!-- 场景1 河道漫溢 -->
+                    <div class="mb-8">
+                        <h4 class="font-bold text-blue-700 mb-2 text-base md:text-lg">场景一：河道漫溢险情</h4>
+                        <p class="text-sm text-gray-600 mb-3">风险：水位超警戒，洪水漫堤造成园区全域内涝、低层/地库泡水</p>
+                        <div class="table-box">
+                            <table class="w-full border-collapse border border-gray-200 text-mobile">
+                                <thead class="bg-blue-100 text-blue-800">
+                                    <tr>
+                                        <th class="border px-3 py-2">处置阶段</th>
+                                        <th class="border px-3 py-2">限时</th>
+                                        <th class="border px-3 py-2 text-left">作业细则</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="border px-3 py-2">预警+全域巡查</td>
+                                        <td class="border px-3 py-2 text-center">20分钟</td>
+                                        <td class="border px-3 py-2">接收预警上报，沿河设观测点，布设警戒隔离</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border px-3 py-2">前置防汛布防</td>
+                                        <td class="border px-3 py-2 text-center">30分钟</td>
+                                        <td class="border px-3 py-2">物资前置，安装防洪闸，50cm沙袋挡墙，封堵雨水篦</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border px-3 py-2">常规漫溢处置</td>
+                                        <td class="border px-3 py-2 text-center">15分钟</td>
+                                        <td class="border px-3 py-2">全开排水泵，转移临水车辆，通知业主转移物资</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border px-3 py-2">险情升级处置</td>
+                                        <td class="border px-3 py-2 text-center">10分钟</td>
+                                        <td class="border px-3 py-2">全员撤离，分区断电，联系消防三防支援</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- 场景2 泄洪渠溢出 -->
+                    <div class="mb-8">
+                        <h4 class="font-bold text-teal-700 mb-2 text-base md:text-lg">场景二：泄洪渠溢出险情</h4>
+                        <p class="text-sm text-gray-600 mb-3">风险：渠体堵塞溢水，裹挟杂物冲击力强，易大面积倒灌园区</p>
+                        <div class="table-box">
+                            <table class="w-full border-collapse border border-gray-200 text-mobile">
+                                <thead class="bg-teal-100 text-teal-800">
+                                    <tr>
+                                        <th class="border px-3 py-2">处置阶段</th>
+                                        <th class="border px-3 py-2">限时</th>
+                                        <th class="border px-3 py-2 text-left">作业细则</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="border px-3 py-2">定向排查预警</td>
+                                        <td class="border px-3 py-2 text-center">20分钟</td>
+                                        <td class="border px-3 py-2">全段排查淤积破损，上报水务申请清障</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border px-3 py-2">前置防汛布防</td>
+                                        <td class="border px-3 py-2 text-center">30分钟</td>
+                                        <td class="border px-3 py-2">出入口80cm加厚沙袋挡墙，潜水泵提前试机</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border px-3 py-2">溢流现场处置</td>
+                                        <td class="border px-3 py-2 text-center">10分钟</td>
+                                        <td class="border px-3 py-2">搭建临时子埂，持续清淤排水，封闭涉险道路</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- 场景3 地下车库倒灌 -->
+                    <div>
+                        <h4 class="font-bold text-red-700 mb-2 text-base md:text-lg">场景三：地下车库专项倒灌</h4>
+                        <p class="text-sm text-gray-600 mb-3">风险：地库标高不足进水，车辆、配电设备受损，易短路起火</p>
+                        <div class="table-box">
+                            <table class="w-full border-collapse border border-gray-200 text-mobile">
+                                <thead class="bg-red-100 text-red-800">
+                                    <tr>
+                                        <th class="border px-3 py-2">处置阶段</th>
+                                        <th class="border px-3 py-2">限时</th>
+                                        <th class="border px-3 py-2 text-left">作业细则</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="border px-3 py-2">汛前前置布防</td>
+                                        <td class="border px-3 py-2 text-center">30分钟</td>
+                                        <td class="border px-3 py-2">关闭防洪闸，加高30cm沙袋，封堵通风井，清空地库人车</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border px-3 py-2">倒灌初期处置</td>
+                                        <td class="border px-3 py-2 text-center">10分钟</td>
+                                        <td class="border px-3 py-2">积水点布设潜水泵，禁止人员下地库，5分钟一报水位</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border px-3 py-2">倒灌高危处置</td>
+                                        <td class="border px-3 py-2 text-center">5分钟</td>
+                                        <td class="border px-3 py-2">切断充电桩/普通照明，配电房挡水，永久封闭出入口</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 七、班组岗位职责 -->
+            <section class="card relative overflow-hidden p-5 md:p-6" id="p7">
+                <div class="card-gradient bg-gradient-to-br from-blue-400/30 to-blue-100/30"></div>
+                <div class="relative">
+                    <h3 class="text-lg md:text-xl font-bold text-blue-600 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-users-cog"></i>七、应急班组岗位职责
+                    </h3>
+                    <div class="table-box">
+                        <table class="w-full border-collapse border border-gray-200 text-mobile">
+                            <thead class="bg-blue-100 text-blue-800">
+                                <tr>
+                                    <th class="border px-3 py-2">班组岗位</th>
+                                    <th class="border px-3 py-2">人员配置</th>
+                                    <th class="border px-3 py-2 text-left">全周期职责</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border px-3 py-2 font-medium">应急总指挥</td>
+                                    <td class="border px-3 py-2">项目物业经理</td>
+                                    <td class="border px-3 py-2">研判险情、统一调度、对接外部单位、组织培训演练</td>
+                                </tr>
+                                <tr>
+                                    <td class="border px-3 py-2 font-medium">工程抢险组</td>
+                                    <td class="border px-3 py-2">工程主管+维修技工</td>
+                                    <td class="border px-3 py-2">管网疏通、设备操作、封堵排水、汛后设施抢修</td>
+                                </tr>
+                                <tr>
+                                    <td class="border px-3 py-2 font-medium">安保疏散组</td>
+                                    <td class="border px-3 py-2">安保主管+在岗队员</td>
+                                    <td class="border px-3 py-2">巡查警戒、人车清场、引导业主有序撤离</td>
+                                </tr>
+                                <tr>
+                                    <td class="border px-3 py-2 font-medium">客户信息组</td>
+                                    <td class="border px-3 py-2">客服+楼栋管家</td>
+                                    <td class="border px-3 py-2">预警推送、特殊人群帮扶、受灾统计安抚</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 八、防汛物资清单 -->
+            <section class="card relative overflow-hidden p-5 md:p-6" id="p8">
+                <div class="card-gradient bg-gradient-to-br from-teal-400/30 to-teal-100/30"></div>
+                <div class="relative">
+                    <h3 class="text-lg md:text-xl font-bold text-teal-600 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-boxes-packing"></i>八、防汛应急物资标准化储备清单
+                    </h3>
+                    <div class="table-box">
+                        <table class="w-full border-collapse border border-gray-200 text-mobile">
+                            <thead class="bg-teal-100 text-teal-800">
+                                <tr>
+                                    <th class="border px-3 py-2">物资名称</th>
+                                    <th class="border px-3 py-2">规格</th>
+                                    <th class="border px-3 py-2">最低储备</th>
+                                    <th class="border px-3 py-2">存放位置</th>
+                                    <th class="border px-3 py-2">管控要求</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border px-3 py-2">防洪闸</td>
+                                    <td class="border px-3 py-2">地库出入口定制</td>
+                                    <td class="border px-3 py-2">按需配齐</td>
+                                    <td class="border px-3 py-2">片区物资仓</td>
+                                    <td class="border px-3 py-2">月度维保</td>
+                                </tr>
+                                <tr>
+                                    <td class="border px-3 py-2">防洪沙袋</td>
+                                    <td class="border px-3 py-2">标准压实袋</td>
+                                    <td class="border px-3 py-2">≥200袋</td>
+                                    <td class="border px-3 py-2">就近存放</td>
+                                    <td class="border px-3 py-2">干湿分区</td>
+                                </tr>
+                                <tr>
+                                    <td class="border px-3 py-2">膨胀堵漏袋</td>
+                                    <td class="border px-3 py-2">40×60cm</td>
+                                    <td class="border px-3 py-2">≥50个</td>
+                                    <td class="border px-3 py-2">工程仓库</td>
+                                    <td class="border px-3 py-2">避光封存</td>
+                                </tr>
+                                <tr>
+                                    <td class="border px-3 py-2">移动潜水泵</td>
+                                    <td class="border px-3 py-2">扬程15m</td>
+                                    <td class="border px-3 py-2">≥4台</td>
+                                    <td class="border px-3 py-2">工程仓库</td>
+                                    <td class="border px-3 py-2">每月试机</td>
+                                </tr>
+                                <tr>
+                                    <td class="border px-3 py-2">应急发电机</td>
+                                    <td class="border px-3 py-2">50kW</td>
+                                    <td class="border px-3 py-2">≥1台</td>
+                                    <td class="border px-3 py-2">专用机房</td>
+                                    <td class="border px-3 py-2">常备油料</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 九、外部联络表 -->
+            <section class="card relative overflow-hidden p-5 md:p-6" id="p9">
+                <div class="card-gradient bg-gradient-to-br from-indigo-400/30 to-indigo-100/30"></div>
+                <div class="relative">
+                    <h3 class="text-lg md:text-xl font-bold text-indigo-600 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-phone-square-alt"></i>九、属地外部应急机构24小时联络表
+                    </h3>
+                    <div class="table-box">
+                        <table class="w-full border-collapse border border-gray-200 text-mobile">
+                            <thead class="bg-indigo-100 text-indigo-800">
+                                <tr>
+                                    <th class="border px-3 py-2">对接单位</th>
+                                    <th class="border px-3 py-2">对接岗位</th>
+                                    <th class="border px-3 py-2">应急电话</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border px-3 py-2">属地三防办</td>
+                                    <td class="border px-3 py-2">防汛分管领导</td>
+                                    <td class="border px-3 py-2">备案专线</td>
+                                </tr>
+                                <tr>
+                                    <td class="border px-3 py-2">属地水务局</td>
+                                    <td class="border px-3 py-2">河道防汛负责人</td>
+                                    <td class="border px-3 py-2">备案专线</td>
+                                </tr>
+                                <tr>
+                                    <td class="border px-3 py-2">消防救援大队</td>
+                                    <td class="border px-3 py-2">值班负责人</td>
+                                    <td class="border px-3 py-2">119+24h值班</td>
+                                </tr>
+                                <tr>
+                                    <td class="border px-3 py-2">医疗急救</td>
+                                    <td class="border px-3 py-2">调度负责人</td>
+                                    <td class="border px-3 py-2">120+调度专线</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 十、硬性管理要求 -->
+            <section class="card relative overflow-hidden p-5 md:p-6" id="p10">
+                <div class="card-gradient bg-gradient-to-br from-red-400/30 to-red-100/30"></div>
+                <div class="relative">
+                    <h3 class="text-lg md:text-xl font-bold text-red-600 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-clipboard-check"></i>十、汛期防汛全域管理硬性要求
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="flex gap-2 items-start">
+                            <span class="font-bold text-red-500">1.</span>
+                            <span>汛期24小时双人值班，全员手机全天畅通</span>
+                        </div>
+                        <div class="flex gap-2 items-start">
+                            <span class="font-bold text-red-500">2.</span>
+                            <span>预警下达后每10分钟一轮临水点位巡查</span>
+                        </div>
+                        <div class="flex gap-2 items-start">
+                            <span class="font-bold text-red-500">3.</span>
+                            <span>抢险全程服从总指挥调度，不得私自变更方案</span>
+                        </div>
+                        <div class="flex gap-2 items-start">
+                            <span class="font-bold text-red-500">4.</span>
+                            <span>一线人员必须穿戴救生衣、安全帽全套防护</span>
+                        </div>
+                        <div class="flex gap-2 items-start">
+                            <span class="font-bold text-red-500">5.</span>
+                            <span>险情失控第一时间上报属地，同步疏散避险</span>
+                        </div>
+                        <div class="flex gap-2 items-start">
+                            <span class="font-bold text-red-500">6.</span>
+                            <span>汛前清理前完成触电、坍塌、中毒安全检测</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 十一、演练经验 -->
+            <section class="card relative overflow-hidden p-5 md:p-6" id="p11">
+                <div class="card-gradient bg-gradient-to-br from-purple-400/30 to-purple-100/30"></div>
+                <div class="relative">
+                    <h3 class="text-lg md:text-xl font-bold text-purple-600 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-person-running"></i>十一、实景演练落地经验参考
+                    </h3>
+                    <div class="table-box">
+                        <table class="w-full border-collapse border border-gray-200 text-mobile">
+                            <thead class="bg-purple-100 text-purple-800">
+                                <tr>
+                                    <th class="border px-3 py-2">经验分类</th>
+                                    <th class="border px-3 py-2 text-left">落地核心要点</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border px-3 py-2 font-medium">政企前置联防</td>
+                                    <td class="border px-3 py-2">联动三防水务开展河道清淤，水位临近警戒立即上报设防</td>
+                                </tr>
+                                <tr>
+                                    <td class="border px-3 py-2 font-medium">班组协同优化</td>
+                                    <td class="border px-3 py-2">固化四大专项小组，建立上报-研判-下令-作业闭环，10分钟到岗</td>
+                                </tr>
+                                <tr>
+                                    <td class="border px-3 py-2 font-medium">防洪闸标准化作业</td>
+                                    <td class="border px-3 py-2">双人操作五步流程：关门-立柱-加固-防渗-沙袋压实</td>
+                                </tr>
+                                <tr>
+                                    <td class="border px-3 py-2 font-medium">排水设备实操</td>
+                                    <td class="border px-3 py-2">月度试机维保，极端险情联动大型抽水车支援</td>
+                                </tr>
+                                <tr>
+                                    <td class="border px-3 py-2 font-medium">全周期闭环管控</td>
+                                    <td class="border px-3 py-2">劳保齐全、预留逃生通道、汛后消杀复盘全流程闭环</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 底部备注 -->
+            <div class="card p-4 text-sm text-gray-500">
+                <p>备注：本手册每季度结合汛情、演练、属地新规修订，全员定期复训；适用于现场培训、岗位随身查阅、上级汇报。</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
