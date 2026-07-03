@@ -1,894 +1,1455 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>临河/水库/洪水倒灌应急处置手册 - 万悦花园防汛演练专版</title>
-<style>
-:root {
-    --primary-dark: #1e3a5f;
-    --primary: #2d5a87;
-    --primary-light: #4a90d9;
-    --danger: #c33;
-    --warning: #e65100;
-    --success: #2e7d32;
-    --info: #1565c0;
-    --gray1: #f5f7fa;
-    --gray2: #f8fafc;
-    --gray3: #e2e8f0;
-    --gray4: #90a4ae;
-    --text: #333;
-    --text-light: #666;
-    --xs: 4px;
-    --sm: 8px;
-    --md: 16px;
-    --lg: 24px;
-    --xl: 32px;
-    --radius-sm: 6px;
-    --radius-md: 10px;
-    --radius-lg: 12px;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
-    --shadow-md: 0 2px 12px rgba(0,0,0,0.06);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-    font-family: "PingFang SC",Microsoft YaHei,sans-serif;
-    line-height:1.8;
-    color:var(--text);
-    background:var(--gray1);
-    scroll-behavior:smooth;
-    padding-bottom: 60px; /* 底部预留空间 */
-}
-/* 锚点导航样式 */
-.anchor-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgba(30, 58, 95, 0.95);
-    color: #fff;
-    padding: 10px var(--lg);
-    z-index: 98;
-    overflow-x: auto;
-    white-space: nowrap;
-    box-shadow: var(--shadow-md);
-}
-.anchor-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 var(--sm);
-    font-size: 14px;
-    padding: 4px 8px;
-    border-radius: 4px;
-    transition: background 0.2s;
-}
-.anchor-nav a:hover, .anchor-nav a.active {
-    background: var(--primary-light);
-}
-.top-header{
-    background:linear-gradient(135deg,var(--primary-dark),var(--primary));
-    color:#fff;
-    padding:25px var(--lg);
-    text-align:center;
-    box-shadow:var(--shadow-md);
-    margin-top: 50px; /* 适配锚点导航 */
-}
-.top-header h1{font-size:24px;margin-bottom:var(--xs);font-weight:600}
-.top-header .subtitle{font-size:14px;opacity:0.9}
-.container{max-width:900px;margin:0 auto;padding:var(--xl) var(--md)}
-.main-content{
-    background:#fff;
-    border-radius:var(--radius-lg);
-    padding:var(--xl);
-    box-shadow:var(--shadow-md);
-}
-.main-content section{margin-bottom:var(--xl);scroll-margin-top: 80px;}
-.main-content h2{
-    font-size:24px;
-    color:var(--primary-dark);
-    margin:var(--xl) 0 var(--md);
-    padding-bottom:var(--sm);
-    border-bottom:3px solid var(--primary-light);
-}
-.main-content h2:first-child{margin-top:0}
-.main-content h3{font-size:18px;color:var(--primary);margin:var(--lg) 0 var(--sm)}
-.main-content h4{font-size:16px;margin:var(--md) 0 var(--xs)}
-.main-content p{margin-bottom:var(--sm);text-align:justify}
-.main-content ul,.main-content ol{margin-left:var(--lg);margin-bottom:var(--md)}
-.main-content li{margin-bottom:var(--xs)}
-.principles-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:var(--md);
-    margin:var(--lg) 0;
-}
-.principle-card{
-    background:#e8f0fe;
-    padding:var(--md);
-    border-radius:var(--radius-md);
-    border-left:4px solid var(--primary-light);
-}
-.principle-card strong{display:block;color:var(--primary-dark);font-size:16px;margin-bottom:var(--xs)}
-.principle-card span{font-size:13px;color:var(--text-light)}
-.badge{
-    display:inline-block;
-    padding:3px 10px;
-    border-radius:12px;
-    font-size:12px;
-    font-weight:600;
-    margin-right:var(--xs);
-}
-.badge-red{background:#fee;color:var(--danger)}
-.badge-orange{background:#fff3e0;color:var(--warning)}
-.badge-blue{background:#e3f2fd;color:var(--info)}
-.badge-green{background:#e8f5e9;color:var(--success)}
-.table-wrapper{
-    width:100%;
-    overflow-x:auto;
-    margin:var(--md) 0;
-    border-radius:var(--radius-md);
-    border:1px solid var(--gray3);
-}
-table{width:100%;border-collapse:collapse;font-size:14px;background:#fff}
-th,td{
-    border:1px solid var(--gray3);
-    padding:12px var(--md);
-    text-align:left;
-    vertical-align:top;
-    line-height:1.6;
-}
-th{
-    background:linear-gradient(135deg,var(--primary-dark),var(--primary));
-    color:#fff;
-    font-weight:600;
-    position:sticky;
-    top:0;
-    z-index:1;
-}
-tbody tr:nth-child(even){background:var(--gray2)}
-tbody tr:hover{background:#eef4fb}
-td strong{color:var(--primary-dark);font-weight:600}
-.duty-table th:first-child,.duty-table td:first-child{
-    width:130px;
-    min-width:120px;
-    background:#f0f6fc;
-    color:var(--primary-dark);
-    font-weight:600;
-}
-.duty-table td:first-child strong{
-    display:flex;
-    align-items:center;
-    gap:var(--xs);
-}
-.duty-table td:first-child strong::before{
-    content:"";
-    width:4px;height:16px;
-    background:linear-gradient(180deg,var(--primary-light),var(--primary));
-    border-radius:2px;
-}
-.alert-box{
-    padding:var(--md) var(--lg);
-    border-radius:var(--radius-sm);
-    margin:var(--md) 0;
-    border-left:4px solid;
-}
-.alert-warning{background:#fff8e1;border-color:#ff9800}
-.alert-danger{background:#ffebee;border-color:#f44336}
-.alert-info{background:#e3f2fd;border-color:var(--primary-light)}
-.alert-success{background:#e8f5e9;border-color:var(--success)}
-.flow-steps{
-    display:flex;
-    flex-wrap:wrap;
-    gap:var(--sm);
-    margin:var(--lg) 0;
-    align-items:center;
-}
-.flow-step{
-    background:var(--primary-light);
-    color:#fff;
-    padding:10px var(--lg);
-    border-radius:20px;
-    font-size:13px;
-    transition: background 0.2s;
-}
-.flow-step:hover {
-    background: var(--primary);
-}
-.flow-arrow{color:var(--gray4);font-size:18px}
-.closed-loop-flow{margin:var(--lg) 0}
-.flow-title{
-    font-size:15px;
-    font-weight:600;
-    color:var(--primary-dark);
-    margin-bottom:var(--sm);
-    display:flex;
-    align-items:center;
-    gap:var(--xs);
-}
-.flow-title::before{
-    content:"";
-    width:4px;height:18px;
-    background:linear-gradient(180deg,var(--primary-light),var(--primary));
-    border-radius:2px;
-}
-.flow-row{display:flex;gap:2px;margin-bottom:var(--md);flex-wrap: wrap;}
-.flow-node{
-    flex:1;
-    padding:var(--md);
-    color:#fff;
-    text-align:center;
-    min-height:52px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:13px;
-    min-width: 100px; /* 移动端节点最小宽度 */
-}
-.flow-node.phase-prepare{background:#5ba3e0}
-.flow-node.phase-monitor{background:#2d7cc0}
-.flow-node.phase-judge{background:#ff9800}
-.flow-node.phase-action{background:#c62828}
-.flow-node.phase-safe{background:#43a047}
-.flow-node.phase-review{background:#5e35b1}
-.flow-node:first-child{border-radius:var(--radius-sm) 0 0 var(--radius-sm)}
-.flow-node:last-child{border-radius:0 var(--radius-sm) var(--radius-sm) 0}
-.flow-connector{padding:0 var(--xs);color:var(--gray4);display: flex;align-items: center;justify-content: center;}
-.flow-branch{display:grid;grid-template-columns:1fr 1fr;gap:var(--md);margin:var(--md) 0}
-.flow-branch-card{border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--gray3)}
-.branch-safe .branch-header{background:#43a047;color:#fff;padding:var(--sm) var(--md)}
-.branch-danger .branch-header{background:#c62828;color:#fff;padding:var(--sm) var(--md)}
-.flow-branch-card .branch-body{padding:var(--md);font-size:13px;color:var(--text-light)}
-.flow-loop-back{display:flex;align-items:center;color:#78909c;font-size:12px;margin:var(--sm) 0}
-.flow-loop-back .loop-line{flex:1;height:1px;background:#cfd8dc;position:relative}
-.flow-loop-back .loop-line::after{content:"↺";position:absolute;right:0;top:-8px}
-.data-cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:var(--sm);
-    margin:var(--md) 0;
-}
-.data-card{
-    background:var(--gray2);
-    padding:var(--md);
-    border-radius:var(--radius-sm);
-    text-align:center;
-    border:1px solid var(--gray3);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-.data-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-sm);
-}
-.data-card .number{font-size:28px;font-weight:700;color:var(--primary-dark)}
-.data-card .label{font-size:12px;color:var(--text-light);margin-top:var(--xs)}
-.back-to-top{
-    position:fixed;
-    bottom:var(--lg);
-    right:var(--lg);
-    width:45px;height:45px;
-    border:none;
-    border-radius:50%;
-    background:var(--primary-light);
-    color:#fff;
-    font-size:20px;
-    cursor:pointer;
-    opacity:0;visibility:hidden;
-    transition:opacity 0.3s;
-    z-index:99;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.back-to-top.visible{opacity:1;visibility:visible}
-.back-to-top:hover{background:var(--primary)}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.tab-content{display:none}
-.tab-content.active{display:block;animation:fadeIn 0.3s}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洪水倒灌实战处置手册</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* 补充样式：紧急提示高亮 */
-.emergency-highlight {
-    animation: blink 1.5s infinite alternate;
-}
-@keyframes blink {
-    from { opacity: 1; }
-    to { opacity: 0.7; }
-}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f5f7fa;
+        }
 
-@media (max-width:768px){
-    :root{--xl:20px;--lg:16px;--md:12px;--sm:6px}
-    .anchor-nav {
-        padding: 8px var(--md);
-    }
-    .anchor-nav a {
-        font-size: 12px;
-        margin: 0 var(--xs);
-    }
-    .container{padding:var(--lg) var(--sm)}
-    .main-content{padding:var(--lg)}
-    .top-header{padding: 20px var(--md);margin-top: 45px;}
-    .top-header h1{font-size:20px}
-    .main-content h2{font-size:20px}
-    .main-content h3{font-size:16px}
-    .data-cards{grid-template-columns:1fr 1fr}
-    .back-to-top{width:40px;height:40px;bottom:var(--md);right:var(--md)}
-    .flow-row{flex-direction:column;gap: var(--sm);}
-    .flow-node {
-        width: 100%;
-        border-radius: var(--radius-sm) !important;
-        margin-bottom: var(--xs);
-    }
-    .flow-connector{transform:rotate(90deg);height: 20px;}
-    .flow-branch{grid-template-columns:1fr}
-    .table-wrapper table{font-size:13px}
-    th,td{padding:10px var(--sm)}
-    .duty-table thead{display:none}
-    .duty-table tbody tr{
-        display:block;
-        margin-bottom:var(--md);
-        border:1px solid var(--gray3);
-        border-radius:var(--radius-md);
-    }
-    .duty-table tbody td{
-        display:flex;
-        width:100%;
-        border:none;
-        border-bottom:1px solid #f0f4f8;
-        padding:var(--sm) var(--md);
-    }
-    .duty-table tbody td::before{
-        content:attr(data-label);
-        width:90px;
-        flex-shrink:0;
-        font-weight:600;
-        color:var(--primary-dark);
-        font-size:12px;
-    }
-    .duty-table td:first-child{
-        background:var(--primary);
-        color:#fff;
-    }
-    .duty-table td:first-child::before{display:none}
-}
-@media print{
-    .back-to-top,.closed-loop-flow,.anchor-nav{display:none !important}
-    .top-header{background:#fff !important;color:#000 !important}
-    .alert-box,.principle-card,.flow-node{background:#fff !important;color:#000 !important;border:1px solid #333}
-    body{background:#fff}
-    .main-content{box-shadow:none}
-}
-</style>
+        /* 顶部导航栏 */
+        .top-header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .top-header h1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .top-header .subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 6px;
+        }
+
+        /* 主容器 */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* 主内容区 */
+        .main-content {
+            background: white;
+            border-radius: 12px;
+            padding: 50px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .main-content h2 {
+            font-size: 24px;
+            color: #1e3a5f;
+            margin-top: 45px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #4a90d9;
+        }
+
+        .main-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .main-content h3 {
+            font-size: 18px;
+            color: #2d5a87;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        .main-content h4 {
+            font-size: 16px;
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .main-content p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        .main-content ul, .main-content ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .main-content li {
+            margin-bottom: 6px;
+        }
+
+        /* 原则卡片 */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .principle-card {
+            background: linear-gradient(135deg, #e8f0fe 0%, #d4e4f7 100%);
+            padding: 18px;
+            border-radius: 10px;
+            border-left: 4px solid #4a90d9;
+        }
+
+        .principle-card strong {
+            display: block;
+            color: #1e3a5f;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .principle-card span {
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* 高亮徽章 */
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+
+        .badge-red {
+            background: #fee;
+            color: #c33;
+        }
+
+        .badge-orange {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .badge-blue {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .badge-green {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px 12px;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        tr:hover {
+            background: #e8f0fe;
+        }
+
+        /* Tab 切换 */
+        .tabs {
+            display: flex;
+            gap: 0;
+            margin: 20px 0 0;
+            border-bottom: 2px solid #e0e0e0;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.3s;
+        }
+
+        .tab-btn:hover {
+            color: #2d5a87;
+        }
+
+        .tab-btn.active {
+            color: #1e3a5f;
+            border-bottom-color: #4a90d9;
+            font-weight: 600;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px 0;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* 提示框 */
+        .alert-box {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid;
+        }
+
+        .alert-warning {
+            background: #fff8e1;
+            border-color: #ff9800;
+        }
+
+        .alert-danger {
+            background: #ffebee;
+            border-color: #f44336;
+        }
+
+        .alert-info {
+            background: #e3f2fd;
+            border-color: #2196f3;
+        }
+
+        .alert-success {
+            background: #e8f5e9;
+            border-color: #4caf50;
+        }
+
+        /* 流程步骤 */
+        .flow-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+            align-items: center;
+        }
+
+        .flow-step {
+            background: #4a90d9;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .flow-arrow {
+            color: #999;
+            font-size: 18px;
+        }
+
+        /* 数据卡片 */
+        .data-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin: 15px 0;
+        }
+
+        .data-card {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .data-card .number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e3a5f;
+        }
+
+        .data-card .label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        /* 回到顶部 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: #4a90d9;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 99;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #2d5a87;
+            transform: translateY(-2px);
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px 10px;
+            }
+
+            .main-content {
+                padding: 25px 20px;
+                border-radius: 8px;
+            }
+
+            .top-header h1 {
+                font-size: 20px;
+            }
+
+            .top-header .subtitle {
+                font-size: 12px;
+            }
+
+            .main-content h2 {
+                font-size: 20px;
+            }
+
+            .main-content h3 {
+                font-size: 16px;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+
+            .data-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .tab-btn {
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 <body>
-<!-- 新增锚点导航 -->
-<div class="anchor-nav">
-    <a href="#purpose">编制目的</a>
-    <a href="#principles">核心原则</a>
-    <a href="#scope">适用范围</a>
-    <a href="#risk-level">风险分级</a>
-    <a href="#terms">术语释义</a>
-    <a href="#process">处置流程</a>
-    <a href="#warning-level">预警备战</a>
-    <a href="#team-duty">岗位职责</a>
-    <a href="#material">物资管理</a>
-    <a href="#block-operation">封堵流程</a>
-    <a href="#evacuate">疏散规范</a>
-    <a href="#after-flood">汛后工作</a>
-    <a href="#contact">应急联络</a>
-</div>
+    <!-- 顶部导航 -->
+    <header class="top-header">
+        <h1>🌊 洪水倒灌实战处置手册</h1>
+        <div class="subtitle">万悦花园防汛演练专版 · 岗位明确 · 步骤细化 · 实操落地</div>
+    </header>
 
-<header class="top-header">
-    <h1>🌊 洪水倒灌实战处置手册</h1>
-    <div class="subtitle">万悦花园防汛演练专版 · 岗位明确 · 步骤细化 · 实操落地</div>
-</header>
+    <div class="container">
+        <!-- 主内容 -->
+        <main class="main-content">
+            <h2>一、编制目的</h2>
+            <p>为高效、规范、有序处置园区洪水倒灌突发险情，标准化全流程应急作业，最大限度保障项目人员生命安全，减少业主财产损失、园区公共设施损毁损失，筑牢汛期防汛安全防线，特编制本实战手册。</p>
+            <p>结合万悦花园临淡水河、地势低洼的高风险特性，通过标准化实景演练流程（分三级演练场景），强化全员应急处置能力，确保汛期风险可防、可控、可处置。</p>
+            <p>手册优化后重点补齐演练分级、指挥权限、业主帮扶、物资适配、班组协同、撤离标准等实操短板，形成贴合基层作业人员习惯的标准化落地指南。</p>
 
-<div class="container">
-<main class="main-content">
-<section id="purpose">
-    <h2>一、编制目的</h2>
-    <p>为高效、规范、有序处置园区洪水倒灌突发险情，标准化全流程应急作业，最大限度保障项目人员生命安全，减少业主财产损失、园区公共设施损毁损失，筑牢汛期防汛安全防线，特编制本实战手册。</p>
-    <p>结合万悦花园临淡水河、地势低洼的高风险特性，通过标准化实景演练流程（分三级演练场景），强化全员应急处置能力，确保汛期风险可防、可控、可处置。</p>
-</section>
-
-<section id="principles">
-    <h2>二、核心处置原则</h2>
-    <div class="principles-grid">
-        <div class="principle-card">
-            <strong>🛡️ 生命至上</strong>
-            <span>生命安全第一，不牺牲人员保全物资</span>
-        </div>
-        <div class="principle-card">
-            <strong>🔍 预防为先</strong>
-            <span>常态化巡查监测，前置备物资布防</span>
-        </div>
-        <div class="principle-card">
-            <strong>⚡ 快速响应</strong>
-            <span>预警下达后所有人员立刻履行应急岗位职责</span>
-        </div>
-        <div class="principle-card">
-            <strong>🤝 联动处置</strong>
-            <span>内部项目+当地三防消防协同作战</span>
-        </div>
-        <div class="principle-card">
-            <strong>📍 属地负责</strong>
-            <span>项目总指挥统一调度，全员服从指令</span>
-        </div>
-        <div class="principle-card">
-            <strong>📊 量化处置</strong>
-            <span>按分级场景匹配资源，按量化指标判定</span>
-        </div>
-    </div>
-</section>
-
-<section id="scope">
-    <h2>三、适用范围</h2>
-    <p>本手册适用于物业服务管辖以下风险区域：</p>
-    <ul>
-        <li>红线距河道/水库300m以内区域（万悦花园北侧紧邻淡水河）</li>             
-        <li>官方划定固定低洼易涝点位</li>
-        <li>历年发生倒灌、内涝历史片区</li>             
-        <li>泄洪渠满负荷易漫溢区域</li>
-        <li>地库无防渗隔离墙体区域</li>    
-        <li>临水挡墙高度不达标点位</li>
-    </ul>
-    <div class="alert-box alert-info">
-        <strong>💡 说明：</strong>本手册适用于所有存在内涝、洪水倒灌风险的住宅小区，可根据项目实际风险等级调整三级演练场景
-    </div>
-</section>
-
-<section id="risk-level">
-    <h2>四、防汛风险分级评估标准</h2>
-    <h3>4.1 风险评估指标及分级标准</h3>
-    <h4>指标A：历史地库最深积水</h4>
-    <div class="data-cards">
-        <div class="data-card"><div class="number" style="color:var(--danger)">＞0.4m</div><div class="label">高风险</div></div>
-        <div class="data-card"><div class="number" style="color:var(--warning)">0.1~0.4m</div><div class="label">中风险</div></div>
-        <div class="data-card"><div class="number" style="color:var(--success)">＜0.1m</div><div class="label">低风险</div></div>
-    </div>
-    <h4>指标B：历史园区最深积水</h4>
-    <div class="data-cards">
-        <div class="data-card"><div class="number" style="color:var(--danger)">＞0.5m</div><div class="label">高风险</div></div>
-        <div class="data-card"><div class="number" style="color:var(--warning)">0.2~0.5m</div><div class="label">中风险</div></div>
-        <div class="data-card"><div class="number" style="color:var(--success)">＜0.2m</div><div class="label">低风险</div></div>
-    </div>
-    <h4>指标C：场地隐患综合判定</h4>
-    <p>判定隐患项：项目地势低洼、临近河道/水库/泄洪区域存在被淹风险、被政府划定为易积水点位、地库临工地基坑/未交付区域无实体墙阻隔、伸缩缝/电缆穿墙孔洞/桥架/管道套管渗水、存在市政返涌倒灌/地库集水井反涌隐患。</p>
-    <ul>
-        <li><span class="badge badge-red">高风险</span>存在任意两项及以上隐患；专项备注：项目临近河道、水库、泄洪区域存在被淹风险，可直接判定为高风险</li>
-        <li><span class="badge badge-orange">中风险</span>存在任意一项隐患（不含河道、水库、泄洪区域淹水风险项）</li>
-        <li><span class="badge badge-green">低风险</span>无上述任何隐患</li>
-    </ul>
-    <h3>4.2 整体防汛分级评估结果</h3>
-    <div class="alert-box alert-warning">
-        <strong>⚠️ 判定逻辑：</strong>指标A、指标B、指标C三个维度独立开展风险评估，项目最终防汛风险等级，<strong>取三项评估结果中的最高风险等级</strong>。
-    </div>
-</section>
-
-<section id="terms">
-    <h2>五、专业术语释义</h2>
-    <div class="table-wrapper">
-        <table>
-            <thead>
-                <tr><th width="25%">术语</th><th width="35%">专业定义</th><th>通俗解释</th></tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td data-label="术语"><strong>警戒水位</strong><br><span class="badge badge-blue">预警水位</span></td>
-                    <td data-label="专业定义">河道水位达防洪标准，需启动前置设防临界水位</td>
-                    <td data-label="通俗解释">水位到这个高度就要开始准备防汛了<br>万悦花园淡水河预警水位为核心监测指标</td>
-                </tr>
-                <tr>
-                    <td data-label="术语"><strong>保证水位</strong><br><span class="badge badge-red">安全水位</span></td>
-                    <td data-label="专业定义">超防洪标准，堤岸易溃，必须所有人员紧急避险</td>
-                    <td data-label="通俗解释">水位到这个高度就必须撤离，不能再留现场</td>
-                </tr>
-                <tr>
-                    <td data-label="术语"><strong>洪水倒灌</strong></td>
-                    <td data-label="专业定义">外部水位高于园区，经管网/通道反向进水</td>
-                    <td data-label="通俗解释">外面的水往小区里面流<br>万悦花园核心风险点</td>
-                </tr>
-                <tr>
-                    <td data-label="术语"><strong>临时子埂</strong><br><span class="badge badge-orange">加高挡水沙袋墙</span></td>
-                    <td data-label="专业定义">沙袋土工布临时加高挡水堤，短时阻隔漫溢</td>
-                    <td data-label="通俗解释">用沙袋临时堆高挡水的墙</td>
-                </tr>
-                <tr>
-                    <td data-label="术语"><strong>龙吸水工程车</strong><br><span class="badge badge-blue">移动龙吸水抽水车</span></td>
-                    <td data-label="专业定义">大型移动排水设备，用于快速抽排大量积水</td>
-                    <td data-label="通俗解释">大功率的移动抽水车，专门抽走小区里的积水</td>
-                </tr>
-                <tr>
-                    <td data-label="术语"><strong>柴油移动抽水泵</strong></td>
-                    <td data-label="专业定义">神冠动力，口径150毫米，每小时抽水100立方米</td>
-                    <td data-label="通俗解释">烧油的抽水机，每小时能抽100方水<br>地库排水核心设备</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</section>
-
-<section id="process">
-    <h2>六、全域主应急处置流程</h2>
-    <div class="table-wrapper">
-        <table>
-            <thead><tr><th width="80px">序号</th><th>全域处置核心内容</th></tr></thead>
-            <tbody>
-                <tr><td data-label="序号" align="center">1</td><td data-label="全域处置核心内容">汛期常态化值班看守、全天候巡查水情（重点监测淡水河水位）；<span class="badge badge-orange">每30分钟</span>打卡巡查风险点位</td></tr>
-                <tr><td data-label="序号" align="center">2</td><td data-label="全域处置核心内容">隐患分级整改，接收官方雨情水情预警；建立隐患整改台账，明确整改责任人及时限</td></tr>
-                <tr><td data-label="序号" align="center">3</td><td data-label="全域处置核心内容">按预警级别分级备战：蓝预警（三级演练）、黄/橙预警（二级演练）、红预警（一级演练）</td></tr>
-                <tr><td data-label="序号" align="center">4</td><td data-label="全域处置核心内容">不间断监测水位，核验是否倒灌；<span class="badge badge-orange">每30分钟</span>记录一次水位数据</td></tr>
-                <tr><td data-label="序号" align="center">5</td><td data-label="全域处置核心内容">确认险情，启动对应专项处置流程；同步通知业主移车、提醒减少外出，重点人群上门帮扶</td></tr>
-                <tr><td data-label="序号" align="center">6</td><td data-label="全域处置核心内容">五大应急班组同步作业；班组间按标准流程衔接反馈</td></tr>
-                <tr><td data-label="序号" align="center">7</td><td data-label="全域处置核心内容">险情可控则持续值班看守至预警解除；按量化指标判断是否可控</td></tr>
-                <tr><td data-label="序号" align="center">8</td><td data-label="全域处置核心内容">汛后消杀、抢修、物资维保、量化复盘优化；填写维保记录表，建立长效优化机制</td></tr>
-            </tbody>
-        </table>
-    </div>
-    <h3>全域应急闭环流程</h3>
-    <div class="closed-loop-flow">
-        <div class="flow-title">📋 常态防控阶段</div>
-        <div class="flow-row">
-            <div class="flow-node phase-prepare">🔍汛期值班巡查</div>
-            <div class="flow-connector">→</div>
-            <div class="flow-node phase-prepare">⚠️隐患自查整改</div>
-            <div class="flow-connector">→</div>
-            <div class="flow-node phase-monitor">🚨分级备战设防</div>
-            <div class="flow-connector">→</div>
-            <div class="flow-node phase-monitor">📊水位核验判定</div>
-        </div>
-        <div class="flow-branch">
-            <div class="flow-branch-card branch-safe">
-                <div class="branch-header">✓ 无倒灌 · 持续值守</div>
-                <div class="branch-body">水位回落至安全值，持续值班看守至预警解除，每30分钟巡查一次风险点位</div>
+            <h2>二、核心处置原则</h2>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <strong>🛡️ 生命至上</strong>
+                    <span>生命安全第一，不牺牲人员保全物资</span>
+                </div>
+                <div class="principle-card">
+                    <strong>🔍 预防为先</strong>
+                    <span>常态化巡查监测，前置备料布防</span>
+                </div>
+                <div class="principle-card">
+                    <strong>⚡ 快速响应</strong>
+                    <span>预警下达后所有人员集合立刻上岗</span>
+                </div>
+                <div class="principle-card">
+                    <strong>🤝 联动处置</strong>
+                    <span>内部班组+当地三防消防协同作战</span>
+                </div>
+                <div class="principle-card">
+                    <strong>📍 属地负责</strong>
+                    <span>项目总指挥统一调度，全员服从指令</span>
+                </div>
+                <div class="principle-card">
+                    <strong>📊 量化处置</strong>
+                    <span>按分级场景匹配资源，按量化指标判定</span>
+                </div>
             </div>
-            <div class="flow-branch-card branch-danger">
-                <div class="branch-header">✗ 确认倒灌 · 启动处置</div>
-                <div class="branch-body">立即启动对应专项处置流程，同步通知业主转移，重点人群上门帮扶</div>
+
+            <h2>三、适用范围</h2>
+            <p>本手册适用于物业服务管辖以下风险区域：</p>
+            <ul>
+                <li>红线距河道/水库300m以内区域（万悦花园北侧紧邻淡水河）</li>
+                <li>官方划定固定低洼易涝点位</li>
+                <li>历年发生倒灌、内涝历史片区</li>
+                <li>泄洪渠满负荷易漫溢区域</li>
+                <li>地库无防渗隔离墙体区域</li>
+                <li>临水挡墙高度不达标点位</li>
+            </ul>
+            <div class="alert-box alert-info">
+                <strong>💡 说明：</strong>本手册优化后适用于所有存在内涝、洪水倒灌风险的城市建成区住宅小区，可根据项目实际风险等级调整三级演练场景的具体参数。
             </div>
-        </div>
-        <div class="flow-title">⚡ 应急处置阶段</div>
-        <div class="flow-row">
-            <div class="flow-node phase-judge">👥五大班组协同抢险</div>
-            <div class="flow-connector">→</div>
-            <div class="flow-node phase-judge">🔧多岗位联合作业</div>
-            <div class="flow-connector">→</div>
-            <div class="flow-node phase-action">⚖️险情可控性判定</div>
-        </div>
-        <div class="flow-branch">
-            <div class="flow-branch-card branch-safe">
-                <div class="branch-header">✓ 险情可控 · 持续值守</div>
-                <div class="branch-body">按量化指标判断可控，持续值班看守至预警解除，加密巡查频次</div>
+
+            <h2>四、防汛风险分级评估标准</h2>
+            
+            <h3>4.1 风险评估指标及分级标准</h3>
+            
+            <h4>指标A：历史地库最深积水</h4>
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="number" style="color: #c33;">＞0.4m</div>
+                    <div class="label">高风险</div>
+                </div>
+                <div class="data-card">
+                    <div class="number" style="color: #e65100;">0.1~0.4m</div>
+                    <div class="label">中风险</div>
+                </div>
+                <div class="data-card">
+                    <div class="number" style="color: #2e7d32;">＜0.1m</div>
+                    <div class="label">低风险</div>
+                </div>
             </div>
-            <div class="flow-branch-card branch-danger">
-                <div class="branch-header">✗ 险情失控 · 联动救援</div>
-                <div class="branch-body">联动消防三防救援，按指定路线撤离至安全区域</div>
+
+            <h4>指标B：历史园区最深积水</h4>
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="number" style="color: #c33;">＞0.5m</div>
+                    <div class="label">高风险</div>
+                </div>
+                <div class="data-card">
+                    <div class="number" style="color: #e65100;">0.2~0.5m</div>
+                    <div class="label">中风险</div>
+                </div>
+                <div class="data-card">
+                    <div class="number" style="color: #2e7d32;">＜0.2m</div>
+                    <div class="label">低风险</div>
+                </div>
             </div>
-        </div>
-        <div class="flow-title">📝 汛后复盘阶段</div>
-        <div class="flow-row">
-            <div class="flow-node phase-review">🧹汛后消杀</div>
-            <div class="flow-connector">→</div>
-            <div class="flow-node phase-review">📋物资盘点维保</div>
-            <div class="flow-connector">→</div>
-            <div class="flow-node phase-review">📈复盘评估</div>
-            <div class="flow-connector">→</div>
-            <div class="flow-node phase-review">🔄手册整改优化</div>
-        </div>
-        <div class="flow-loop-back">
-            <span class="loop-line"></span>
-            <span>闭环回流，回归常态防控</span>
-            <span class="loop-line"></span>
-        </div>
+
+            <h4>指标C：场地隐患综合判定</h4>
+            <p>判定隐患项：项目地势低洼、临近河道/水库/泄洪区域存在被淹风险、被政府划定为易积水点位、地库临工地基坑/未交付区域无实体墙阻隔、伸缩缝/电缆穿墙孔洞/桥架/管道套管渗水、存在市政返涌倒灌/地库集水井反涌隐患。</p>
+            <ul>
+                <li><span class="badge badge-red">高风险</span>存在任意两项及以上隐患；专项备注：项目临近河道、水库、泄洪区域存在被淹风险，可直接判定为高风险</li>
+                <li><span class="badge badge-orange">中风险</span>存在任意一项隐患（不含河道、水库、泄洪区域淹水风险项）</li>
+                <li><span class="badge badge-green">低风险</span>无上述任何隐患</li>
+            </ul>
+
+            <h3>4.2 整体防汛分级评估结果</h3>
+            <div class="alert-box alert-warning">
+                <strong>⚠️ 判定逻辑：</strong>指标A、指标B、指标C三个维度独立开展风险评估，项目最终防汛风险等级，<strong>取三项评估结果中的最高风险等级</strong>。
+            </div>
+
+            <h3>4.3 高风险（特殊关注级）专项判定标准</h3>
+            <p>若项目历史出现以下任一极端情况，直接划定为高风险（特殊关注级）：市政道路出现1.5米以上极端积水、地库存在出入口以外进水隐患。满足以下任意一条即判定生效：</p>
+            <ol>
+                <li>存在结构性渗漏进水隐患，包含基坑、未封堵伸缩缝、穿墙孔洞、通风天井等隐患部位</li>
+                <li>存在市政管网高水位倒灌、地库集水井频繁反涌且未彻底整改</li>
+                <li>有历史严重渗漏水记录，且相关隐患未完成彻底治理</li>
+                <li>园区及地库周边排水管网堵塞、排水能力不足，汛期易形成积水倒灌</li>
+                <li>地库出入口地势低洼，汛期无法实现有效封堵防水</li>
+                <li>项目低洼区域无防汛排水设施，或现有排水设备功率不足、无法应对强降雨天气</li>
+                <li>地库无实体围挡墙，或实体墙高度不足，市政高水位积水必然倒灌淹没地库</li>
+            </ol>
+
+            <h2>五、专业术语释义</h2>
+            
+            <table>
+                <tr>
+                    <th width="25%">术语</th>
+                    <th width="35%">专业定义</th>
+                    <th>通俗解释</th>
+                </tr>
+                <tr>
+                    <td><strong>警戒水位</strong><br><span class="badge badge-blue">预警水位</span></td>
+                    <td>河道水位达防洪标准，需启动前置设防临界水位</td>
+                    <td>水位到这个高度就要开始准备防汛了<br>万悦花园淡水河预警水位为核心监测指标</td>
+                </tr>
+                <tr>
+                    <td><strong>保证水位</strong><br><span class="badge badge-red">安全水位</span></td>
+                    <td>超防洪标准，堤岸易溃，必须所有人员紧急避险</td>
+                    <td>水位到这个高度就必须撤离，不能再留现场</td>
+                </tr>
+                <tr>
+                    <td><strong>洪水倒灌</strong></td>
+                    <td>外部水位高于园区，经管网/通道反向进水</td>
+                    <td>外面的水往小区里面流<br>万悦花园核心风险点</td>
+                </tr>
+                <tr>
+                    <td><strong>临时子埂</strong><br><span class="badge badge-orange">加高挡水沙袋墙</span></td>
+                    <td>沙袋土工布临时加高挡水堤，短时阻隔漫溢</td>
+                    <td>用沙袋临时堆高挡水的墙</td>
+                </tr>
+                <tr>
+                    <td><strong>龙吸水工程车</strong><br><span class="badge badge-blue">移动龙吸水抽水车</span></td>
+                    <td>大型移动排水设备，用于快速抽排大量积水</td>
+                    <td>大功率的移动抽水车，专门抽走小区里的积水</td>
+                </tr>
+                <tr>
+                    <td><strong>柴油移动抽水泵</strong></td>
+                    <td>神冠动力，口径150毫米，每小时抽水100立方米</td>
+                    <td>烧油的抽水机，每小时能抽100方水<br>地库排水核心设备</td>
+                </tr>
+            </table>
+
+            <h2>六、全域主应急处置流程</h2>
+            
+            <table>
+                <tr>
+                    <th width="80px">序号</th>
+                    <th>全域处置核心内容</th>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">1</td>
+                    <td>汛期常态化值班看守、全天候巡查水情（重点监测淡水河水位）；<span class="badge badge-orange">每30分钟</span>打卡巡查风险点位</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">2</td>
+                    <td>隐患分级整改，接收官方雨情水情预警；建立隐患整改台账，明确整改责任人及时限</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">3</td>
+                    <td>按预警级别分级备战：蓝预警（三级演练）、黄/橙预警（二级演练）、红预警（一级演练）</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">4</td>
+                    <td>不间断监测水位，核验是否倒灌；<span class="badge badge-orange">每15分钟</span>记录一次水位数据</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">5</td>
+                    <td>确认险情，启动对应专项处置流程；同步通知业主转移，重点人群上门帮扶</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">6</td>
+                    <td>抢险/排水/警戒疏散班组同步作业；班组间按标准流程衔接反馈</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">7</td>
+                    <td>险情可控则持续值班看守至预警解除；按量化指标判断是否可控</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">8</td>
+                    <td>险情失控，立即下达撤离指令，联动当地消防三防救援；按指定路线撤离至集合点</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">9</td>
+                    <td>汛后消杀、抢修、物资维保、量化复盘优化；填写维保记录表，建立长效优化机制</td>
+                </tr>
+            </table>
+
+            <h3>全域应急闭环流程</h3>
+            <div class="flow-steps">
+                <span class="flow-step">汛期值班巡查</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-step">隐患自查整改</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-step">分级备战设防</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-step">水位核验判定</span>
+            </div>
+            <div class="flow-steps">
+                <span class="flow-step" style="background: #4caf50;">无倒灌→返回值班</span>
+                <span class="flow-arrow">↔</span>
+                <span class="flow-step" style="background: #f44336;">确认倒灌→启动专项处置</span>
+            </div>
+            <div class="flow-steps">
+                <span class="flow-step">班组协同抢险</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-step" style="background: #4caf50;">可控→持续值班</span>
+                <span class="flow-arrow">↔</span>
+                <span class="flow-step" style="background: #f44336;">失控→撤离+救援</span>
+            </div>
+            <div class="flow-steps">
+                <span class="flow-step">汛后闭环复盘</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-step">量化评估+整改</span>
+            </div>
+
+            <h2>七、三大专项险情场景处置</h2>
+            
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab(0)">场景一：河道漫溢</button>
+                <button class="tab-btn" onclick="switchTab(1)">场景二：泄洪渠溢出</button>
+                <button class="tab-btn" onclick="switchTab(2)">场景三：地库倒灌</button>
+            </div>
+
+            <div class="tab-content active" id="tab0">
+                <div class="alert-box alert-danger">
+                    <strong>⚠️ 风险：</strong>水位超警戒，洪水漫堤造成园区全域内涝、低层/地库泡水<br>
+                    <strong>📍 万悦花园淡水河核心风险</strong>
+                </div>
+                <table>
+                    <tr>
+                        <th>处置阶段</th>
+                        <th width="80px">限时</th>
+                        <th>作业细则</th>
+                    </tr>
+                    <tr>
+                        <td>预警+全域巡查</td>
+                        <td><span class="badge badge-orange">20分钟</span></td>
+                        <td>接收预警上报，沿河设观测点（淡水河沿岸），布设警戒隔离；同步推送业主预警，开始统计特殊人群情况</td>
+                    </tr>
+                    <tr>
+                        <td>前置防汛布防</td>
+                        <td><span class="badge badge-orange">30分钟</span></td>
+                        <td>物资前置（风险点就近取用），安装新型防洪闸，50cm沙袋挡墙，封堵雨水篦；工程组完成后向后勤组反馈布防细节</td>
+                    </tr>
+                    <tr>
+                        <td>常规漫溢处置</td>
+                        <td><span class="badge badge-orange">15分钟</span></td>
+                        <td>全开排水泵（含柴油移动抽水泵，提前组装软管），转移临水车辆（联系不上车主时记录信息并安排拖移），通知业主转移物资</td>
+                    </tr>
+                    <tr>
+                        <td>险情升级处置</td>
+                        <td><span class="badge badge-red">10分钟</span></td>
+                        <td>触发撤离指标时立即全员撤离，分区断电，联系消防三防支援（协调移动龙吸水抽水车）；撤离至指定集合点后清点人数</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="tab-content" id="tab1">
+                <div class="alert-box alert-warning">
+                    <strong>⚠️ 风险：</strong>渠体堵塞溢水，裹挟杂物冲击力强，易大面积倒灌园区
+                </div>
+                <table>
+                    <tr>
+                        <th>处置阶段</th>
+                        <th width="80px">限时</th>
+                        <th>作业细则</th>
+                    </tr>
+                    <tr>
+                        <td>定向排查预警</td>
+                        <td><span class="badge badge-orange">20分钟</span></td>
+                        <td>全段排查淤积破损，上报水务申请清障；同步向业主推送预警信息，重点提醒泄洪渠周边住户</td>
+                    </tr>
+                    <tr>
+                        <td>前置防汛布防</td>
+                        <td><span class="badge badge-orange">30分钟</span></td>
+                        <td>出入口80cm加厚沙袋挡墙（宽≥50cm），潜水泵提前试机（加注90%柴油）；物资从就近专用物资柜取用</td>
+                    </tr>
+                    <tr>
+                        <td>溢流现场处置</td>
+                        <td><span class="badge badge-orange">10分钟</span></td>
+                        <td>搭建加高挡水沙袋墙，持续清淤排水，封闭涉险道路；安保组封闭道路前10分钟通知客服组告知业主绕行</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="tab-content" id="tab2">
+                <div class="alert-box alert-danger">
+                    <strong>⚠️ 风险：</strong>地库标高不足进水，车辆、配电设备受损，易短路起火<br>
+                    <strong>📍 万悦花园重点防护区域</strong>
+                </div>
+                <table>
+                    <tr>
+                        <th>处置阶段</th>
+                        <th width="80px">限时</th>
+                        <th>作业细则</th>
+                    </tr>
+                    <tr>
+                        <td>汛前前置布防</td>
+                        <td><span class="badge badge-orange">30分钟</span></td>
+                        <td>关闭新型防洪闸，加高30cm沙袋（宽≥50cm），封堵通风井，清空地库人车；提前梳理地库车主清单，便于快速联系</td>
+                    </tr>
+                    <tr>
+                        <td>倒灌初期处置</td>
+                        <td><span class="badge badge-orange">10分钟</span></td>
+                        <td>积水点布设柴油潜水泵（≤5分钟启动成功），禁止人员下地库，5分钟一报水位；客服组持续联系车主移车</td>
+                    </tr>
+                    <tr>
+                        <td>倒灌高危处置</td>
+                        <td><span class="badge badge-red">5分钟</span></td>
+                        <td>触发撤离指标（水位上涨＞1m/小时）时切断充电桩/普通照明，配电房挡水，永久封闭出入口；立即下达撤离指令</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2>八、应急班组岗位职责</h2>
+            
+            <table>
+                <tr>
+                    <th>班组岗位</th>
+                    <th width="120px">人员配置</th>
+                    <th>全周期职责</th>
+                    <th width="150px">协同衔接要求</th>
+                </tr>
+                <tr>
+                    <td><strong>应急总指挥</strong></td>
+                    <td>项目总监（高铭阳）</td>
+                    <td>分析判断险情、统一调度、对接外部单位、组织培训演练；演练中宣布演练启动/结束，复盘点评</td>
+                    <td>每10分钟下达一次指令，接收值班经理汇报</td>
+                </tr>
+                <tr>
+                    <td><strong>现场值班经理</strong></td>
+                    <td>驻场经理（欧朝印）</td>
+                    <td>统筹现场处置，审批应急预案启动，汇报演练结果；总指挥缺位时全权接管现场指挥；下达撤离指令</td>
+                    <td>≤3分钟响应各班组反馈，向总指挥实时汇报</td>
+                </tr>
+                <tr>
+                    <td><strong>工程抢险组</strong></td>
+                    <td>工程主管+维修技工</td>
+                    <td>管网疏通、设备操作（柴油泵启动≤5分钟）、防洪闸安装/拆除（≤30分钟）、汛后设施抢修</td>
+                    <td>完成作业立即向值班经理反馈，告知后勤组布防细节</td>
+                </tr>
+                <tr>
+                    <td><strong>安保疏散组</strong></td>
+                    <td>安全主管+在岗队员</td>
+                    <td>巡查警戒（淡水河水位每15分钟记录）、人车清场、引导业主有序撤离；引导救援车辆进场</td>
+                    <td>封闭道路前10分钟通知客服组，撤离时在前引导</td>
+                </tr>
+                <tr>
+                    <td><strong>客户信息组</strong></td>
+                    <td>客服+楼栋管家</td>
+                    <td>预警推送（业主群/公告/一对一）、特殊人群帮扶（上门点对点）、受灾统计安抚</td>
+                    <td>每5分钟向值班经理反馈通知及帮扶情况</td>
+                </tr>
+                <tr>
+                    <td><strong>后勤保障组</strong></td>
+                    <td>环境主管+保洁人员</td>
+                    <td>沟渠清掏、物资搬运（就近取用）、汛后消杀、劳保用品保障</td>
+                    <td>按工程组反馈堆砌沙袋，完成后反馈值班经理</td>
+                </tr>
+                <tr>
+                    <td><strong>指挥中心</strong></td>
+                    <td>监控室值班员</td>
+                    <td>接收巡逻岗上报，传达指令，联动各班组；记录所有作业台账</td>
+                    <td>实时记录各班组作业时间及反馈，确保无遗漏</td>
+                </tr>
+            </table>
+
+            <h2>九、防汛物资配置标准</h2>
+            
+            <p>项目按防汛风险分为高风险（含高风险特殊关注级）、中风险、低风险，地库出入口区分单、双车道执行差异化配置标准，所有物资落实定点存放、定期巡检制度。</p>
+
+            <h3>9.1 配置总则</h3>
+            <ul>
+                <li>高风险特殊关注级项目沙袋、防洪闸、大型汽柴油水泵全部执行最高配置标准；场地条件受限无法标准封堵时，编制专项物资配置方案存档</li>
+                <li>项目多处地下车库出入口需独立配齐物资，不可分摊共用；历史暴雨内涝、低洼、临河临山项目在基准数量基础上增配物资</li>
+            </ul>
+
+            <h3>9.2 防汛沙袋（标配物资）</h3>
+            <table>
+                <tr>
+                    <th>防汛分级</th>
+                    <th>单车道配置标准</th>
+                    <th>双车道配置标准</th>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-red">高风险/特殊关注级</span></td>
+                    <td>不低于200个标准防汛沙袋</td>
+                    <td>不低于400个标准防汛沙袋</td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-green">低/中风险项目</span></td>
+                    <td>不低于160个标准防汛沙袋</td>
+                    <td>不低于330个标准防汛沙袋</td>
+                </tr>
+            </table>
+
+            <h4>规格与使用要求</h4>
+            <ul>
+                <li>常规规格70×30×10cm吸水膨胀沙袋；高风险推荐30cm×80cm，更换规格需保证总堆放体积不变</li>
+                <li>10米双向出入口搭建100cm高、110cm宽挡水墙按需核算沙袋，重点防护部位额外增补</li>
+            </ul>
+
+            <h4>存储堆放规范</h4>
+            <ul>
+                <li>存放点距防洪闸不超过10米，放置在地库入口坡道最高点；底部垫高15-20cm，防水布全覆盖防雨</li>
+                <li>堆垛尺寸高1.2m、宽3m，交叉错缝压实，单侧留斜坡增强稳固，搭配防洪闸、防水帆布组合挡水</li>
+            </ul>
+
+            <h3>9.3 防洪闸（标配物资）</h3>
+            <table>
+                <tr>
+                    <th>防汛分级</th>
+                    <th>最低配置高度</th>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-red">高风险/特殊关注级</span></td>
+                    <td>不低于2米</td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-orange">中风险项目</span></td>
+                    <td>不低于1.5米</td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-green">低风险项目</span></td>
+                    <td>不低于1米</td>
+                </tr>
+            </table>
+
+            <h4>安装、支撑与封堵标准</h4>
+            <ul>
+                <li>支撑结构：三角斜撑/L型后挡杆，背水侧金属支撑杆，支撑夹角30°~45°；管材选用≥Φ48钢管或50×50×5mm角钢</li>
+                <li>水位超1米增设第二道斜撑；闸体宽度大于2米，每1米设置一处支撑点，防止闸体中部变形</li>
+                <li>闸体底部必须与市政路面平齐，严禁安装在车道下坡位置；底部、墙体缝隙用沙袋压实，外层包裹防水布密封</li>
+                <li>标准安装顺序：闸体插入导轨卡槽→安装背部支撑并紧固→沙袋压实底部及两侧→覆盖防水帆布防溢流</li>
+            </ul>
+
+            <h3>9.4 抽水泵（汽柴油泵+电动泵 标配）</h3>
+            
+            <h4>一、汽/柴油抽水泵配置标准</h4>
+            <table>
+                <tr>
+                    <th>项目分级</th>
+                    <th>配置参数</th>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-red">高风险/特殊关注级</span></td>
+                    <td>2台，流量≥150m³/h，扬程≥15m</td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-orange">中风险项目</span></td>
+                    <td>2台，流量≥80m³/h</td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-green">低风险项目</span></td>
+                    <td>1台，流量≥80m³/h</td>
+                </tr>
+            </table>
+
+            <h4>二、电动抽水泵（按地下建筑面积配置）</h4>
+            <table>
+                <tr>
+                    <th>地下建筑面积</th>
+                    <th>最低配置数量</th>
+                </tr>
+                <tr>
+                    <td>5万方以下</td>
+                    <td>≥2台</td>
+                </tr>
+                <tr>
+                    <td>5-10万方</td>
+                    <td>≥4台</td>
+                </tr>
+                <tr>
+                    <td>10-20万方</td>
+                    <td>≥6台</td>
+                </tr>
+                <tr>
+                    <td>20万方以上</td>
+                    <td>≥8台</td>
+                </tr>
+            </table>
+
+            <h3>9.5 通用管理补充要求</h3>
+            <div class="alert-box alert-info">
+                <ul>
+                    <li>高风险特殊关注级所有防汛物资执行最高配置标准，严禁降配、少配</li>
+                    <li>多车库出入口物资独立配置，不可共用分摊数量</li>
+                    <li>所有防汛物资定点存放、专人管理，每季度全面盘点，破损、缺失物资24小时内补齐更换</li>
+                </ul>
+            </div>
+
+            <h2>十、防汛演练分级与应急指挥体系</h2>
+            
+            <h3>10.1 演练分级场景设计（匹配预警级别）</h3>
+            <table>
+                <tr>
+                    <th>演练级别</th>
+                    <th>匹配预警级别</th>
+                    <th>演练场景设置</th>
+                    <th>处置资源调配标准</th>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-blue">三级演练</span></td>
+                    <td>蓝色预警（一般险情）</td>
+                    <td>河道水位上涨至警戒水位，无漫溢迹象，地库无进水风险</td>
+                    <td>巡逻岗+工程岗值班巡查，核对物资、测试设备；<span class="badge badge-orange">每30分钟</span>巡查</td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-orange">二级演练</span></td>
+                    <td>黄色/橙色预警（较大险情）</td>
+                    <td>河道水位超警戒50cm，出现漫溢苗头，地库出入口渗水隐患</td>
+                    <td>抢险+工程+后勤组共15人到场，搭建防洪闸、布设沙袋、启动潜水泵；<span class="badge badge-orange">每15分钟</span>巡查</td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-red">一级演练</span></td>
+                    <td>红色预警（重大险情）</td>
+                    <td>河道水位超警戒100cm，漫溢风险极高，地库通风井进水隐患</td>
+                    <td>全体应急班组共25人到场，完成所有布防，对接消防三防，演练撤离救援；<span class="badge badge-red">每5分钟</span>巡查</td>
+                </tr>
+            </table>
+
+            <h3>10.2 应急指挥体系（明确权限移交）</h3>
+            
+            <div class="data-cards">
+                <div class="data-card" style="border-color: #1e3a5f;">
+                    <div class="number" style="font-size: 18px; color: #1e3a5f;">一级指挥</div>
+                    <div class="label" style="text-align: left; margin-top: 8px;">
+                        • 人员：项目总监<br>
+                        • 职责：统筹整体，对接外部<br>
+                        • 缺位时：二级指挥接管
+                    </div>
+                </div>
+                <div class="data-card" style="border-color: #2d5a87;">
+                    <div class="number" style="font-size: 18px; color: #2d5a87;">二级指挥</div>
+                    <div class="label" style="text-align: left; margin-top: 8px;">
+                        • 人员：驻场物业经理<br>
+                        • 职责：现场第一责任人<br>
+                        • 缺位时：安保主管接管
+                    </div>
+                </div>
+                <div class="data-card" style="border-color: #4a90d9;">
+                    <div class="number" style="font-size: 18px; color: #4a90d9;">三级指挥</div>
+                    <div class="label" style="text-align: left; margin-top: 8px;">
+                        • 人员：各班组主管<br>
+                        • 职责：带领班组完成作业<br>
+                        • 响应：≤3分钟反馈
+                    </div>
+                </div>
+            </div>
+
+            <h4>指挥权移交场景（触发任一即移交）</h4>
+            <ul>
+                <li>总指挥/现场经理无法及时抵达现场</li>
+                <li>通讯信号中断，无法接收上级指令</li>
+                <li>现场经理受伤/失联，无法履行职责</li>
+                <li>险情升级至一级演练级别，需要快速决策</li>
+            </ul>
+
+            <h2>十一、业主预警反馈与重点人群帮扶机制</h2>
+            
+            <h3>11.1 普通业主预警传递流程</h3>
+            <div class="flow-steps">
+                <span class="flow-step">第一步：多渠道发布</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-step">第二步：覆盖确认</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-step">第三步：反馈统计</span>
+            </div>
+            <ul>
+                <li><strong>多渠道发布：</strong>客服组发布园区广播、业主群公告、楼栋张贴通知</li>
+                <li><strong>覆盖确认：</strong>管家逐栋巡楼确认；对未读群消息业主，一对一私信/电话通知，留存记录</li>
+                <li><strong>反馈统计：</strong>每5分钟向值班经理反馈通知覆盖情况，记录未联系上的业主</li>
+            </ul>
+
+            <h3>11.2 重点人群专项帮扶流程</h3>
+            <table>
+                <tr>
+                    <th>重点人群类型</th>
+                    <th>提前准备工作</th>
+                    <th>预警帮扶动作</th>
+                    <th>验证方式</th>
+                </tr>
+                <tr>
+                    <td>独居老人</td>
+                    <td>建立清单，留存紧急联系人</td>
+                    <td>客服+安保上门点对点通知，协助转移至应急避险区</td>
+                    <td>现场拍照/视频确认，记录转移时间</td>
+                </tr>
+                <tr>
+                    <td>行动不便人士</td>
+                    <td>建立清单，标注帮扶需求</td>
+                    <td>安排专人协助转移，提供轮椅/担架等工具</td>
+                    <td>紧急联系人电话确认</td>
+                </tr>
+                <tr>
+                    <td>重疾业主/留守儿童</td>
+                    <td>建立清单，对接社区居委会</td>
+                    <td>优先转移至3楼以上避险区，安排专人看护</td>
+                    <td>填写帮扶记录表，签字确认</td>
+                </tr>
+            </table>
+
+            <h3>11.3 地库车辆转移疏导流程</h3>
+            <ol>
+                <li><strong>提前准备：</strong>梳理地库车主清单，留存联系方式，标注车辆停放位置</li>
+                <li><strong>通知阶段：</strong>按清单联系车主移车，群通知+一对一电话，记录联系结果</li>
+                <li><strong>疏导阶段：</strong>安保组引导车辆有序撤离，开辟临时疏导通道</li>
+                <li><strong>应急处理：</strong>联系不上车主时，记录车牌+位置，由值班经理安排拖车</li>
+            </ol>
+            <div class="alert-box alert-warning">
+                <strong>⏱️ 时限要求：</strong>从通知到完成疏导<span class="badge badge-orange">≤30分钟</span>（二级/一级演练）
+            </div>
+
+            <h2>十二、应急撤离量化标准</h2>
+            
+            <h3>12.1 撤离触发量化指标（任一触发即撤离）</h3>
+            <div class="data-cards">
+                <div class="data-card" style="border-color: #f44336;">
+                    <div class="number" style="color: #f44336; font-size: 22px;">超警戒150cm</div>
+                    <div class="label">河道水位</div>
+                </div>
+                <div class="data-card" style="border-color: #f44336;">
+                    <div class="number" style="color: #f44336; font-size: 22px;">超过80cm</div>
+                    <div class="label">防洪闸外围积水</div>
+                </div>
+                <div class="data-card" style="border-color: #f44336;">
+                    <div class="number" style="color: #f44336; font-size: 22px;">＞1m/小时</div>
+                    <div class="label">地库水位上涨速度</div>
+                </div>
+                <div class="data-card" style="border-color: #f44336;">
+                    <div class="number" style="color: #f44336; font-size: 22px;">立即撤离</div>
+                    <div class="label">现场人员受伤</div>
+                </div>
+            </div>
+            <div class="alert-box alert-danger">
+                <strong>🚨 补充：</strong>外部救援无法及时进场支援时，现场经理直接下达撤离指令
+            </div>
+
+            <h3>12.2 撤离统一组织规范</h3>
+            
+            <h4>统一撤离信号同步下发</h4>
+            <p>手持警报器鸣笛、园区全域广播、班组对讲机同步播报三重通知，明确撤离方向、集合点位</p>
+
+            <h4>撤离队伍分工引导</h4>
+            <ul>
+                <li><strong>安保组：</strong>在前开路引导路线</li>
+                <li><strong>工程组：</strong>断电、关闭水阀后收尾撤离</li>
+                <li><strong>客服组：</strong>陪同老人、残障、儿童等特殊人群居中转移</li>
+            </ul>
+
+            <h4>固定应急集合点位</h4>
+            <ul>
+                <li><strong>主集合点：</strong>园区大门外侧空旷广场</li>
+                <li><strong>备用集合点：</strong>3#、6#高层三楼架空层（洪水阻断主干道时启用）</li>
+            </ul>
+
+            <h4>到点清点核对流程</h4>
+            <p>抵达集合点后各班组3分钟内清点应到/实到人数，上报现场经理；存在人员失联第一时间告知消防精准搜救</p>
+            
+            <div class="alert-box alert-info">
+                <strong>📊 行业标准：</strong>撤离指令下达至全员集合完成<span class="badge badge-blue">≤5分钟</span>
+            </div>
+
+            <h2>十三、防汛演练量化评估指标体系</h2>
+            
+            <table>
+                <tr>
+                    <th>评估考核维度</th>
+                    <th>量化考核指标</th>
+                    <th>行业达标标准</th>
+                    <th>现场核验方式</th>
+                </tr>
+                <tr>
+                    <td>班组响应速度</td>
+                    <td>预案下达至全员到岗时长</td>
+                    <td><span class="badge badge-green">≤10分钟</span></td>
+                    <td>对讲机计时、值守台账核对</td>
+                </tr>
+                <tr>
+                    <td>挡水布防效率</td>
+                    <td>防洪闸完整搭建耗时</td>
+                    <td><span class="badge badge-green">≤30分钟</span></td>
+                    <td>现场专人计时核验</td>
+                </tr>
+                <tr>
+                    <td>排水设备实操</td>
+                    <td>柴油抽水泵单次启动时长</td>
+                    <td><span class="badge badge-green">≤5分钟</span>，连续3次正常出水</td>
+                    <td>现场实操计时测试</td>
+                </tr>
+                <tr>
+                    <td>沙袋搭设规范</td>
+                    <td>挡水沙袋宽度、高度</td>
+                    <td>宽度≥50cm，高度≥30cm</td>
+                    <td>卷尺现场实测</td>
+                </tr>
+                <tr>
+                    <td>班组协同衔接</td>
+                    <td>工序交接反馈间隔</td>
+                    <td><span class="badge badge-green">≤3分钟</span></td>
+                    <td>记录对讲机反馈时间</td>
+                </tr>
+                <tr>
+                    <td>人员撤离效率</td>
+                    <td>撤离通知至全员集合时长</td>
+                    <td><span class="badge badge-green">≤5分钟</span></td>
+                    <td>集合点计时、人数清点</td>
+                </tr>
+            </table>
+
+            <h3>评估整改闭环规则</h3>
+            <ul>
+                <li>演练结束24小时内出具完整量化评估报告，逐条标注不达标项目、超时环节</li>
+                <li>针对短板制定整改清单，明确整改责任人、7日内完成整改验证</li>
+                <li>单项指标连续两次不达标，组织全员专项实操加训，纳入月度绩效考核</li>
+                <li>所有评估报告、整改记录统一归档，作为次年防汛方案优化依据</li>
+            </ul>
+
+            <h2>十四、政企联动现场配合细则</h2>
+            
+            <h3>14.1 演练前置报备与联合踏勘</h3>
+            <ul>
+                <li>正式演练前3个工作日，书面报备属地住建局、应急管理所、三防办、消防救援大队，提交演练方案、模拟险情点位</li>
+                <li>主动邀请主管单位到场观摩点评，汛期前完成园区现场联合踏勘</li>
+                <li>踏勘同步确认：救援车辆进场通道、临时停靠点位、水电气总阀位置、高层避险楼层</li>
+            </ul>
+
+            <h3>14.2 外部救援到场配合流程</h3>
+            <ul>
+                <li><strong>安保组：</strong>专人在园区大门外等候引导，全程带路至积水、倒灌核心区域</li>
+                <li><strong>工程组：</strong>提前备好园区管网、配电平面图纸，告知地下管线分布，规避作业破损风险</li>
+                <li><strong>后勤组：</strong>清空救援作业场地，预留接驳水源、电源，配合铺设抽水管道</li>
+                <li><strong>客服组：</strong>同步疏散周边围观业主，保障救援作业空间畅通</li>
+            </ul>
+
+            <h3>14.3 专用救援通道保障要求</h3>
+            <ul>
+                <li>园区主干道划定固定救援专用通道，日常禁止车辆长期停放，设置红色导向标识</li>
+                <li>暴雨、红色预警期间，安保每小时巡查通道清障，杜绝杂物、私家车占用</li>
+                <li>险情处置阶段，所有业主车辆临时分流至外围临时停放区，优先保障消防车、移动龙吸水抽水车通行</li>
+            </ul>
+
+            <h2>十五、汛后物资维保、复盘整改与常态化防汛管理</h2>
+            
+            <h3>15.1 物资清点、清洁、维保、入库规范</h3>
+            <table>
+                <tr>
+                    <th>物资类别</th>
+                    <th>汛后清洁分拣步骤</th>
+                    <th>设备维保操作</th>
+                    <th>归档管控</th>
+                </tr>
+                <tr>
+                    <td>防洪闸、金属支撑件</td>
+                    <td>冲洗淤泥、擦干表面水渍</td>
+                    <td>金属连接部位涂抹黄油防锈，更换老化密封胶条</td>
+                    <td>登记配件损耗，缺失24小时内采购补齐</td>
+                </tr>
+                <tr>
+                    <td>防洪沙袋、防渗防水布</td>
+                    <td>冲洗泥沙、完全晾干，分拣破损袋单独报废</td>
+                    <td>完好品折叠整齐，干湿分区存放</td>
+                    <td>破损沙袋每月统一补充至最低储备量</td>
+                </tr>
+                <tr>
+                    <td>柴油移动抽水泵、软管</td>
+                    <td>排空泵体、管道内部积水，冲洗外壁淤泥</td>
+                    <td>加注防锈润滑油，检查接口密封圈，补满备用柴油</td>
+                    <td>填写设备维保记录表，标注下次试机时间</td>
+                </tr>
+            </table>
+            <div class="alert-box alert-info">
+                <strong>⏱️ 时限要求：</strong>全部物资维保工作需在演练/险情结束4小时内启动，24小时完成入库归档
+            </div>
+
+            <h3>15.2 三段式复盘整改机制</h3>
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="number" style="font-size: 16px;">当日</div>
+                    <div class="label" style="text-align: left; margin-top: 8px;">
+                        <strong>现场列队总结</strong><br>
+                        全体班组集合，各组上报到场人数、作业耗时、现场卡点；属地主管现场点评
+                    </div>
+                </div>
+                <div class="data-card">
+                    <div class="number" style="font-size: 16px;">24小时内</div>
+                    <div class="label" style="text-align: left; margin-top: 8px;">
+                        <strong>书面复盘报告</strong><br>
+                        结合量化评估指标，梳理超时、不规范、物资短缺问题，形成整改清单
+                    </div>
+                </div>
+                <div class="data-card">
+                    <div class="number" style="font-size: 16px;">7日内</div>
+                    <div class="label" style="text-align: left; margin-top: 8px;">
+                        <strong>复查优化更新</strong><br>
+                        完成整改后现场复核，优化流程、物资增补标准更新进手册
+                    </div>
+                </div>
+            </div>
+
+            <h3>15.3 汛前-汛期-汛后长效管理规则</h3>
+            
+            <h4>📅 汛前（每年4-5月）</h4>
+            <ul>
+                <li>全线排查河道、地库、泄洪渠隐患，建立整改台账</li>
+                <li>清点维保全部防汛物资，补齐短缺设备</li>
+                <li>5月22日水灾警示日前组织年度全流程演练</li>
+                <li>更新特殊人群帮扶清单、外部应急联络表</li>
+            </ul>
+
+            <h4>🌧️ 汛期（每年5-9月）</h4>
+            <ul>
+                <li>24小时双人值班看守，风险点位每30分钟巡更打卡</li>
+                <li>橙色及以上预警加密巡查至每15分钟一次</li>
+                <li>每月一次抽水泵、防洪闸空载实操测试</li>
+                <li>每日与属地三防办同步河道水位数据</li>
+            </ul>
+
+            <h4>🍂 汛后（每年10月）</h4>
+            <ul>
+                <li>全域园区消杀、破损设施抢修</li>
+                <li>全套物资深度维保、盘点补充</li>
+                <li>年度防汛、演练工作全面复盘总结</li>
+                <li>修订次年防汛处置手册与演练方案</li>
+            </ul>
+
+            <h2>十六、属地外部应急机构24小时联络表</h2>
+            
+            <table>
+                <tr>
+                    <th>对接单位</th>
+                    <th>对接岗位</th>
+                    <th>应急电话</th>
+                    <th>核心对接事项</th>
+                </tr>
+                <tr>
+                    <td>属地三防办</td>
+                    <td>防汛分管领导</td>
+                    <td>备案专线</td>
+                    <td>雨情水情预警、龙吸水抽水车调度、险情上报</td>
+                </tr>
+                <tr>
+                    <td>属地水务局</td>
+                    <td>河道防汛负责人</td>
+                    <td>备案专线</td>
+                    <td>淡水河水位监测、泄洪渠清障、堤岸检修</td>
+                </tr>
+                <tr>
+                    <td>消防救援大队</td>
+                    <td>24小时值班</td>
+                    <td><strong style="color: #f44336;">119</strong></td>
+                    <td>人员搜救、大面积积水强排、人员紧急转移</td>
+                </tr>
+                <tr>
+                    <td>医疗急救</td>
+                    <td>调度中心</td>
+                    <td><strong style="color: #f44336;">120</strong></td>
+                    <td>受伤人员转运、现场医疗救助</td>
+                </tr>
+                <tr>
+                    <td>住建局物业科</td>
+                    <td>王所（防汛分管）</td>
+                    <td>备案专线</td>
+                    <td>防汛演练指导、物业防汛工作督查、政策通知传达</td>
+                </tr>
+                <tr>
+                    <td>辖区社区居委会</td>
+                    <td>应急专干</td>
+                    <td>社区24小时值班</td>
+                    <td>特殊人群帮扶联动、周边小区物资互助调配</td>
+                </tr>
+            </table>
+            <div class="alert-box alert-warning">
+                <strong>📝 备注：</strong>本表每季度更新一次，所有班组主管、监控室、值班岗留存纸质复印件
+            </div>
+
+            <h2>十七、汛期全员硬性管理要求</h2>
+            
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <strong>📦 物资管理</strong>
+                    <span>防洪闸、柴油抽水泵每月启动检查；演练必须全套穿戴劳保用品</span>
+                </div>
+                <div class="principle-card">
+                    <strong>👥 人员值班</strong>
+                    <span>5-9月汛期全天双人在岗；风险点位每30分钟巡更填水位台账</span>
+                </div>
+                <div class="principle-card">
+                    <strong>🚨 预警响应</strong>
+                    <span>蓝、黄预警1小时内完成挡水布防；橙、红预警立即一级集结</span>
+                </div>
+                <div class="principle-card">
+                    <strong>🎯 年度演练</strong>
+                    <span>每年5月22日水灾警示日开展完整实景演练，出具量化复盘报告</span>
+                </div>
+                <div class="principle-card">
+                    <strong>🔄 汛后闭环</strong>
+                    <span>险情解除2小时内拆除复位；12小时全域消杀；72小时完成复盘</span>
+                </div>
+                <div class="principle-card">
+                    <strong>🤝 政企沟通</strong>
+                    <span>汛期每日同步三防办水情；龙吸水支援10分钟内完成报备对接</span>
+                </div>
+            </div>
+
+            <div class="alert-box alert-danger">
+                <strong>📚 培训考核要求：</strong>每半年组织一次防汛实操考核，考核不达标人员重新参加专项加训，合格后方可参与汛期值班
+            </div>
+
+            <h2>十八、实景防汛演练三段式完整实操流程</h2>
+            
+            <h3>一、汛前演练准备</h3>
+            <ol>
+                <li><strong>方案、人员分级筹备</strong>
+                    <ul>
+                        <li>每年5月22日前编制三级分级演练方案，匹配蓝/黄橙/红色预警对应险情场景</li>
+                        <li>搭建三级指挥架构，明确指挥权移交规则，落实各班组主管</li>
+                        <li>全员配发全套防汛劳保，演练前统一穿戴核验</li>
+                        <li>岗前培训：水位判定、防洪闸搭建、抽水泵启停、特殊人群帮扶、撤离路线指引标准化动作教学</li>
+                    </ul>
+                </li>
+                <li><strong>物资场地前置核验</strong>
+                    <ul>
+                        <li>清点挡水、排水、照明、防护、急救六大类物资，就近点位提前摆放</li>
+                        <li>抽水泵、防洪闸空载试机，软管、密封件提前组装适配</li>
+                        <li>划定水位观测、地库布防、物资存放三大演练作业区</li>
+                        <li>提前清掏排水沟、加固广告牌树木，消除演练次生风险</li>
+                    </ul>
+                </li>
+                <li><strong>外部单位提前对接报备</strong>
+                    <ul>
+                        <li>演练前3天书面报备住建、三防、消防，邀请到场观摩评估</li>
+                        <li>联合踏勘救援通道、设备停靠点位，明确抽水车进场对接流程</li>
+                        <li>更新24小时外部联络清单，下发所有班组</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>二、汛中实战演练开展</h3>
+            <div class="alert-box alert-warning">
+                <strong>🎯 模拟险情：</strong>淡水河水位上涨超警戒，存在漫溢、地下车库倒灌双重风险
+            </div>
+            <ol>
+                <li><strong>险情巡查上报（分级巡更）</strong>：巡逻岗按对应演练级别频次观测淡水河水位，达到预警阈值立即对讲机上报监控中心，同步记录水位、时间</li>
+                <li><strong>预案分级启动，班组集合到位</strong>：现场经理判定险情匹配对应演练等级，下达集结指令；各班组10分钟内全员抵达点位，上报实到人数</li>
+                <li><strong>多班组同步前置防护、业主预警帮扶</strong>
+                    <ul>
+                        <li>工程组：电梯、配电房积水排查，必要临时停梯</li>
+                        <li>客服组：三重渠道发布预警，逐户确认通知，上门帮扶独居、行动不便业主，登记车辆未转移人员</li>
+                        <li>后勤组：全线清掏雨水口、管网杂物</li>
+                        <li>安保组：加固户外设施，封闭危险路段，提前10分钟通知客服分流业主</li>
+                    </ul>
+                </li>
+                <li><strong>地库防洪闸标准化搭建（五步操作）</strong>：关门→安装方形钢管支撑架构→加装底部防渗挡水板→铺设加厚防渗防水布→外围堆砌宽度≥50cm沙袋墙，全程控制30分钟内完工</li>
+                <li><strong>柴油抽水泵标准化实操</strong>：固定三步启动流程，全员轮换操作，要求5分钟内正常出水，记录排水效率</li>
+                <li><strong>次生险情模拟处置</strong>
+                    <ul>
+                        <li>①人员受伤：开启专属急救通道，对接120</li>
+                        <li>②地库快速涨水：触发撤离指标，演练调度移动龙吸水抽水车进场</li>
+                    </ul>
+                </li>
+                <li><strong>险情判定解除，各班组逐项反馈</strong>：模拟水位回落至安全值，现场经理依次收集各班组作业完成情况，确认无进水隐患</li>
+                <li><strong>一级演练专属：全员撤离实操</strong>：触发量化撤离指标，同步广播+警报下发撤离指令，按既定路线转移至集合点，3分钟完成人数清点上报</li>
+            </ol>
+
+            <h3>三、汛后演练收尾、量化复盘优化</h3>
+            <ol>
+                <li><strong>现场物资拆除、清洁、归位维保</strong>
+                    <ul>
+                        <li>分两组反向拆除防洪设施，沙袋分拣破损、防水布冲洗晾干折叠</li>
+                        <li>抽水泵排空积水、加注润滑油，金属支架防锈处理，入库登记</li>
+                        <li>保洁组对演练积水区域冲洗、模拟全域消杀作业</li>
+                    </ul>
+                </li>
+                <li><strong>列队点评、主管现场评估</strong>
+                    <ul>
+                        <li>所有班组统一集合，各组负责人汇报到场、作业耗时</li>
+                        <li>现场经理汇总演练全流程情况，对照量化指标逐条自查</li>
+                        <li>住建、三防到场专家点评短板，明确整改方向</li>
+                    </ul>
+                </li>
+                <li><strong>书面复盘+长效整改优化</strong>
+                    <ul>
+                        <li>24小时内出具量化评估复盘报告，列明超时、不达标项目</li>
+                        <li>建立整改台账，7日内完成全部短板整改并复核</li>
+                        <li>更新本处置手册、物资台账、岗位职责</li>
+                        <li>针对薄弱环节组织专项实操加训，纳入季度考核</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>防汛演练标准化落地经验</h3>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <strong>🏛️ 政企前置联防</strong>
+                    <span>汛前联合河道清障，水位临界同步上报联动救援力量</span>
+                </div>
+                <div class="principle-card">
+                    <strong>🔗 班组闭环交接</strong>
+                    <span>工序完成3分钟内反馈，杜绝作业空档、职责空白</span>
+                </div>
+                <div class="principle-card">
+                    <strong>🚪 防洪闸五步操作</strong>
+                    <span>全员熟练掌握，严控30分钟搭建时限</span>
+                </div>
+                <div class="principle-card">
+                    <strong>⚙️ 设备常态化实操</strong>
+                    <span>每月试机、演练轮换上手，保障险情快速排水</span>
+                </div>
+                <div class="principle-card">
+                    <strong>🔄 三段式全周期管控</strong>
+                    <span>筹备-实战-复盘闭环，物资、人员、帮扶、撤离全覆盖</span>
+                </div>
+            </div>
+
+            <div class="alert-box alert-success" style="margin-top: 30px;">
+                <strong>📖 手册修订说明：</strong>本版为演练复盘优化升级版，补齐演练分级、三级指挥、业主帮扶、量化撤离、物资维保、量化评估、政企联动八大类实操短板，全部表述简化适配基层物业人员阅读。<br><br>
+                <strong>🔄 更新规则：</strong>每季度结合雨情、演练问题、属地新规修订；全体物业人员季度复训，可用于现场实操培训、岗位随身查阅、上级防汛检查汇报。
+            </div>
+        </main>
     </div>
-</section>
 
-<section id="warning-level">
-    <h2>七、防汛预警分级与分级备战标准</h2>
-    <div class="alert-box alert-danger emergency-highlight">
-        <strong>核心规则：</strong>气象、水利、三防办任一渠道发布更高等级预警，项目直接执行最高等级备战方案，不得降级处置。
-    </div>
-    <div class="table-wrapper">
-        <table>
-            <thead>
-                <tr><th>预警等级</th><th>标识颜色</th><th>触发条件</th><th>人员备战要求</th><th>前置设防动作</th></tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td data-label="预警等级">Ⅳ级（一般）</td>
-                    <td data-label="标识颜色"><span class="badge badge-blue">蓝色</span></td>
-                    <td data-label="触发条件">24小时内有大雨，河流水位接近警戒水位</td>
-                    <td data-label="人员备战要求">值班人员在岗，全员保持通讯畅通，不得离岗外出</td>
-                    <td data-label="前置设防动作">巡查风险点位，清点防汛物资，疏通排水沟渠</td>
-                </tr>
-                <tr>
-                    <td data-label="预警等级">Ⅲ级（较重）</td>
-                    <td data-label="标识颜色"><span class="badge badge-orange">黄色</span></td>
-                    <td data-label="触发条件">12小时内暴雨，河道水位达到警戒水位</td>
-                    <td data-label="人员备战要求">全体安保、工程到岗待命，客服备勤通知业主</td>
-                    <td data-label="前置设防动作">沙袋搬运至地库出入口、低洼点位，启动抽水泵预检查</td>
-                </tr>
-                <tr>
-                    <td data-label="预警等级">Ⅱ级（严重）</td>
-                    <td data-label="标识颜色"><span class="badge badge-orange">橙色</span></td>
-                    <td data-label="触发条件">6小时内大暴雨，水位超警戒水位持续上涨</td>
-                    <td data-label="人员备战要求">项目全员在岗，五大应急班组随时待命，总指挥统一调度</td>
-                    <td data-label="前置设防动作">地库出入口堆筑基础沙袋挡水墙，关闭地库自动道闸，转移地下贵重物资</td>
-                </tr>
-                <tr>
-                    <td data-label="预警等级">Ⅰ级（特别严重）</td>
-                    <td data-label="标识颜色"><span class="badge badge-red">红色</span></td>
-                    <td data-label="触发条件">特大暴雨，河道接近保证水位，存在漫溢倒灌风险</td>
-                    <td data-label="人员备战要求">五大班组全员投入抢险，同步联动社区、消防、三防办支援</td>
-                    <td data-label="前置设防动作">加高加固沙袋子埂，切断地库非必要电源，组织业主车辆转移至高地安置</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</section>
+    <!-- 回到顶部按钮 -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
 
-<section id="team-duty">
-    <h2>八、应急班组岗位职责</h2>
-    <div class="alert-box alert-info">
-        <strong>标准化应急分组：</strong>信息指挥组、安全抢险组、工程处置组、医疗救护组、后勤保障组（含环境绿化），全员服从信息指挥组统一调度。
-    </div>
-    <div class="table-wrapper">
-        <table class="duty-table">
-            <thead>
-                <tr><th>班组名称</th><th>负责人</th><th>核心工作职责</th><th>配备物资</th></tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td data-label="班组名称"><strong>指挥组</strong></td>
-                    <td data-label="负责人">项目总监/值班经理</td>
-                    <td data-label="核心工作职责">接收官方雨情水情预警；统一下达抢险、封堵、撤离指令；对外对接社区、消防、三防办；汇总各组险情数据，全程记录；险情后牵头复盘；统筹调配所有班组人力。</td>
-                    <td data-label="配备物资">对讲机、水位记录表、应急通讯录、扩音喇叭、拍照手机、白板、签字笔</td>
-                </tr>
-                <tr>
-                    <td data-label="班组名称"><strong>安全抢险组</strong></td>
-                    <td data-label="负责人">安保主管</td>
-                    <td data-label="核心工作职责">全域河道、地库、管网不间断巡查；实时上报积水水位；设置警戒隔离带，转运沙袋、构筑挡水子埂；帮扶老弱病残孕；现场秩序维护。</td>
-                    <td data-label="配备物资">沙袋、铁锹、彩条布、水位尺、防水手电、警戒带、雨具、巡查表、手持扩音器、简易担架</td>
-                </tr>
-                <tr>
-                    <td data-label="班组名称"><strong>工程处置组</strong></td>
-                    <td data-label="负责人">工程主管</td>
-                    <td data-label="核心工作职责">封堵孔洞、伸缩缝；启停、检修抽水泵；疏通雨水井、集水井；汛后设施抢修。</td>
-                    <td data-label="配备物资">防水胶、撬棍、柴油水泵、排水管、绝缘手套</td>
-                </tr>
-                <tr>
-                    <td data-label="班组名称"><strong>医疗救护组</strong></td>
-                    <td data-label="负责人">客服主管</td>
-                    <td data-label="核心工作职责">现场、安置点驻点急救；处理擦伤、扭伤、受凉；重伤立即拨打120并开展基础救护；安抚业主，登记受伤人员上报指挥组。</td>
-                    <td data-label="配备物资">全套急救包、碘伏、纱布、止血带、毛毯、饮用水、伤情登记表</td>
-                </tr>
-                <tr>
-                    <td data-label="班组名称"><strong>后勤保障组（含环境绿化）</strong></td>
-                    <td data-label="负责人">环境/行政主管</td>
-                    <td data-label="核心工作职责">防汛物资盘点补给；抢险人员饮食饮水；安置点布置；汛后淤泥垃圾清运、全域消杀；倒伏绿化清理、沟渠疏通；破损物资登记报备。</td>
-                    <td data-label="配备物资">消杀药剂、防护服、饮用水、速食、物资台账、保洁与绿化工具、垃圾袋</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</section>
-
-<section id="material">
-    <h2>九、防汛物资储备标准与管理规范</h2>
-    <h3>9.1 必配防汛物资清单</h3>
-    <div class="table-wrapper">
-        <table>
-            <thead>
-                <tr><th>物资名称</th><th>最低储备量</th><th>存放位置</th><th>月度检查要点</th></tr>
-            </thead>
-            <tbody>
-                <tr><td data-label="物资名称">编织防汛沙袋</td><td data-label="最低储备量">800条</td><td data-label="存放位置">地库出入口</td><td data-label="月度检查要点">无破损防潮，沙土充足，便于快速搬运</td></tr>
-                <tr><td data-label="物资名称">150口径柴油抽水泵</td><td data-label="最低储备量">4台</td><td data-label="存放位置">工程设备房</td><td data-label="月度检查要点">油液充足，可正常启动，水管无老化开裂</td></tr>
-                <tr><td data-label="物资名称">彩条布/防水布</td><td data-label="最低储备量">每个通道至少一条</td><td data-label="存放位置">车库出入口</td><td data-label="月度检查要点">干燥无撕裂霉变</td></tr>
-                <tr><td data-label="物资名称">防水手电/头灯</td><td data-label="最低储备量">按需配置</td><td data-label="存放位置">安保岗、物资仓</td><td data-label="月度检查要点">电量充足，备用电池齐全</td></tr>
-                <tr><td data-label="物资名称">防汛雨衣雨靴</td><td data-label="最低储备量">按需配置</td><td data-label="存放位置">工程、安保值班室</td><td data-label="月度检查要点">无破损漏水，尺码齐全</td></tr>
-                <tr><td data-label="物资名称">警戒带、警示桩</td><td data-label="最低储备量">按需配置</td><td data-label="存放位置">安保仓库</td><td data-label="月度检查要点">无断裂，标识清晰</td></tr>
-                <tr><td data-label="物资名称">急救医药包</td><td data-label="最低储备量">按需配置</td><td data-label="存放位置">客服中心、岗亭</td><td data-label="月度检查要点">药品在有效期，耗材齐全</td></tr>
-            </tbody>
-        </table>
-    </div>
-    <h3>9.2 物资管理硬性要求</h3>
-    <ol>
-        <li>物资分区张贴标识、建立取用登记台账；</li>
-        <li>每月专项盘点，缺失损坏24小时内补齐；</li>
-        <li>油料、药品标注有效期，临期提前更换；</li>
-        <li>物资库房干燥通风，通道无杂物堵塞；</li>
-        <li>抢险物资需设置专属区域，不得挪作他用；</li> <!-- 补充要求 -->
-    </ol>
-</section>
-
-<section id="block-operation">
-    <h2>十、地库洪水倒灌封堵实操流程</h2>
-    <div class="flow-steps">
-        <span class="flow-step">1预警到位</span><span class="flow-arrow">→</span>
-        <span class="flow-step">2车辆转移至安全点</span><span class="flow-arrow">→</span>
-        <span class="flow-step">3装设新型防洪闸</span><span class="flow-arrow">→</span>
-        <span class="flow-step">4彩条布防渗</span><span class="flow-arrow">→</span>
-        <span class="flow-step">5沙袋加固</span><span class="flow-arrow">→</span>
-        <span class="flow-step">6排水泵就位</span><span class="flow-arrow">→</span>
-        <span class="flow-step">7定时值守巡查</span>
-    </div>
-    <h4>1.预警到位</h4>
-    <p>黄橙预警下达后，安全抢险组第一时间观测地库水位，上报指挥组；启动应急预案。</p>
-    <h4>2.车辆转移至安全点</h4>
-    <p>信息组通知业主移车，关闭地库道闸，禁止车辆入库，对未及时移车的业主进行电话/上门提醒。</p> <!-- 补充细节 -->
-    <h4>3.装设新型防洪闸</h4>
-    <p>抢险组快速装设新型防洪闸，封堵缝隙，防止水流进入；防洪闸安装需2人协同，确保底部与地面无缝贴合。</p> <!-- 补充细节 -->
-    <h4>4.彩条布防渗</h4>
-    <p>沙袋内侧全覆盖彩条布，底部外延地面30cm阻断毛细渗水；彩条布需用沙袋压实，避免被水流冲开。</p> <!-- 补充细节 -->
-    <h4>5.沙袋加固</h4>
-    <p>外侧配重沙袋抵御水压。边角缝隙放置沙袋防止渗水；沙袋堆叠需呈“品”字形，高度不低于0.8米（可根据水位调整）。</p> <!-- 补充细节 -->
-    <h4>6.排水泵就位</h4>
-    <p>工程处置组在内侧集水井布置抽水泵，提前检查设备状况；抽水泵需连接备用电源，防止市电中断。</p> <!-- 补充细节 -->
-    <h4>7.值守巡查</h4>
-    <p>安全抢险组每30分钟检查渗漏、水位，异常立即上报指挥组；巡查记录需实时填写，留存备查。</p> <!-- 补充细节 -->
-</section>
-
-<section id="evacuate">
-    <h2>十一、突发情形处置规范</h2>
-    <h3>11.1 疏散触发条件</h3>
-    <ul>
-        <li>应急抢险过程中突发其它应急事件（如触电、墙体坍塌、人员被困等）</li> <!-- 补充细节 -->
-        <li>河道水位超过保证水位，存在堤岸溃决风险</li>
-        <li>地库积水每小时上涨超过0.3米，无法有效控制</li>
-        <li>接到三防办/消防部门的强制疏散指令</li>
-    </ul>
-    <h3>11.2 处置优先级</h3>
-    <div class="alert-box alert-info">
-       老人、孕妇、残障、婴幼儿 → 妇女儿童 → 青壮年业主 → 抢险人员；安全抢险组主导疏散，医疗救护组全程帮扶。
-    </div>
-    <h3>11.3 疏散路线与安置要求</h3>
-    <p>标准路线：楼栋单元后门→园区中心高地广场；特大险情统一转移至社区避难场所（XX路XX号社区服务中心）。</p> <!-- 补充细节 -->
-    <ol>
-        <li>岔路口专人引导，严禁涉水通行；水深超过0.3米区域需使用救生器材辅助疏散</li>
-        <li>后勤保障组布置安置点，医疗救护组设置急救工位；安置点需配备应急照明、饮用水、食品</li>
-        <li>疏散过程中需清点人数，确保无人员遗漏；重点人群需安排专人一对一帮扶</li> <!-- 补充细节 -->
-    </ol>
-</section>
-
-<section id="after-flood">
-    <h2>十二、汛后消杀、复盘与隐患整改</h2>
-    <h3>12.1 汛后清理消杀流程</h3>
-    <ul>
-        <li>第一步：工程处置组抽净残留积水；后勤（绿化）清理淤泥漂浮物；积水抽排后需检查设备房、配电室有无进水</li>
-        <li>第二步：全域高浓度含氯消毒液冲洗地库、排水井；消毒液配比为1:50，重点消杀积水浸泡区域</li>
-        <li>第三步：通风48小时后二次消杀；二次消杀需覆盖电梯、楼道、公共卫生间等高频接触区域</li>
-        <li>第四步：清运垃圾，清理倒伏绿化、疏通景观沟渠；垃圾清运需分类处理，避免二次污染</li>
-    </ul>
-    <h3>12.2 复盘工作要求</h3>
-    <p>险情解除24小时内，信息指挥组组织五大班组全员复盘，形成书面报告：</p>
-    <ol>
-        <li>完整雨情、水位、积水数据记录；需附水位监测照片、视频等佐证材料</li>
-        <li>各班组处置亮点、配合卡点、人员缺口；重点分析跨班组协作的问题</li>
-        <li>物资短缺、设备故障清单；明确短缺物资补充时限、故障设备维修方案</li>
-        <li>疏散、救护、业主反馈问题；建立业主反馈台账，逐一回访解决</li>
-        <li>对应整改措施、责任人、完成时限；整改完成后需组织验收</li>
-        <li>演练/实战过程中的优化建议；更新至手册，形成闭环</li> <!-- 补充要求 -->
-    </ol>
-    <h3>12.3 隐患闭环管理</h3>
-    <p>工程处置组建立整改台账，高风险隐患7日内完工，中低风险隐患15日内完工，所有隐患汛期前全部闭环；整改前后拍照存档，信息指挥组复核验收，验收不合格需重新整改。</p> <!-- 补充细节 -->
-</section>
-
-<section id="contact">
-    <h2>十三、应急联络通讯录</h2>
-    <div class="table-wrapper">
-        <table>
-            <thead>
-                <tr><th>联络单位/岗位</th><th>联系人</th><th>联系电话</th><th>紧急用途</th></tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td data-label="联络单位/岗位">信息指挥组（总指挥）</td>
-                    <td data-label="联系人">物业经理</td>
-                    <td data-label="联系电话">13XXXXXXXXX</td>
-                    <td data-label="紧急用途">统筹五大班组、对外总对接</td>
-                </tr>
-                <tr>
-                    <td data-label="联络单位/岗位">社区三防负责人</td>
-                    <td data-label="联系人">社区主任</td>
-                    <td data-label="联系电话">0XX-XXXXXXXX</td>
-                    <td data-label="紧急用途">接收预警、协调避难安置</td>
-                </tr>
-                <tr>
-                    <td data-label="联络单位/岗位">消防救援</td>
-                    <td data-label="联系人">值班指挥员</td>
-                    <td data-label="联系电话">119</td>
-                    <td data-label="紧急用途">人员被困、大面积积水抢险</td>
-                </tr>
-                <tr>
-                    <td data-label="联络单位/岗位">医疗急救</td>
-                    <td data-label="联系人">急救中心</td>
-                    <td data-label="联系电话">120</td>
-                    <td data-label="紧急用途">人员受伤、突发疾病救治</td>
-                </tr>
-                <tr>
-                    <td data-label="联络单位/岗位">三防办</td>
-                    <td data-label="联系人">值班人员</td>
-                    <td data-label="联系电话">0XX-XXXXXXXX</td>
-                    <td data-label="紧急用途">获取水情预警、申请救援支援</td>
-                </tr>
-                <tr>
-                    <td data-label="联络单位/岗位">工程抢险组</td>
-                    <td data-label="联系人">工程主管</td>
-                    <td data-label="联系电话">13XXXXXXXXX</td>
-                    <td data-label="紧急用途">设备故障、封堵抢险指挥</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="alert-box alert-warning">
-        <strong>⚠️ 重要提醒：</strong>通讯录需每月更新一次，确保所有联系方式有效；纸质版张贴于中控室、客服中心，电子版同步至全员工作群。
-    </div>
-</section>
-</main>
-</div>
-
-<!-- 返回顶部按钮 -->
-<button class="back-to-top" id="backToTop">↑</button>
-
-<!-- JS交互逻辑 -->
-<script>
-// 返回顶部按钮
-const backToTopBtn = document.getElementById('backToTop');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        backToTopBtn.classList.add('visible');
-    } else {
-        backToTopBtn.classList.remove('visible');
-    }
-});
-backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-// 锚点导航高亮
-const anchorLinks = document.querySelectorAll('.anchor-nav a');
-const sections = document.querySelectorAll('main section');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= (sectionTop - 100)) {
-            current = section.getAttribute('id');
+    <script>
+        // Tab 切换
+        function switchTab(index) {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach((tab, i) => {
+                tab.classList.toggle('active', i === index);
+            });
+            contents.forEach((content, i) => {
+                content.classList.toggle('active', i === index);
+            });
         }
-    });
 
-    anchorLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').substring(1) === current) {
-            link.classList.add('active');
+        // 回到顶部
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-    });
-});
 
-// 锚点点击平滑滚动
-anchorLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        targetSection.scrollIntoView({
-            behavior: 'smooth'
+        // 滚动监听：回到顶部按钮显示
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
         });
-    });
-});
-
-// 打印适配
-window.addEventListener('beforeprint', () => {
-    document.body.style.paddingBottom = 0;
-});
-window.addEventListener('afterprint', () => {
-    document.body.style.paddingBottom = '60px';
-});
-</script>
+    </script>
 </body>
 </html>
